@@ -11,4 +11,8 @@ class FrontendController extends Controller
     public function index(){
         return view('frontend.modules.index');
     }
+    //single return
+    public function single_post(){
+        return view('frontend.modules.single-post');
+    }
 }

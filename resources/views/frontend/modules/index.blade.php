@@ -3,7 +3,7 @@
 <!-- content -->
 @section('content')
  <!-- ======= Hero Slider Section ======= -->
- <section id="hero-slider" class="hero-slider">
+    <section id="hero-slider" class="hero-slider">
       <div class="container-md" data-aos="fade-in">
         <div class="row">
           <div class="col-12">
@@ -77,7 +77,6 @@
                 </div>
               </div>
             </div>
-
           </div>
 
           <div class="col-lg-8">

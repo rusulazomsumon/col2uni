@@ -1,4 +1,4 @@
-<div class="trending">
+                <div class="trending">
                   <h3>Trending</h3>
                   <ul class="trending-post">
                     <li>
@@ -37,4 +37,18 @@
                       </a>
                     </li>
                   </ul>
+                </div>
+                <!-- ######LoginForm####### -->
+                <div class="login pt-5">
+                  <form>
+                      <div class="form-group">
+                          <label for="username">Username</label>
+                          <input type="text" class="form-control" id="username" placeholder="Enter your username">
+                      </div>
+                      <div class="form-group">
+                          <label for="password">Password</label>
+                          <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                      </div>
+                      <button type="submit" class="btn btn-primary">Login</button>
+                  </form>
                 </div>

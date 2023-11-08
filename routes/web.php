@@ -20,3 +20,5 @@ use App\Http\Controllers\Frontend\FrontendController;
 
 // retun blog home 
 Route::get('/', [FrontendController::class, 'index'])->name('front.index');
+// single post 
+Route::get('/single-post', [FrontendController::class, 'single_post'])->name('front.single-post');
