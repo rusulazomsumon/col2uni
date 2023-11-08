@@ -1,7 +1,7 @@
 <?php
-
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\FrontendController;
+use App\Http\Controllers\Backend\BackendController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +18,12 @@ use App\Http\Controllers\Frontend\FrontendController;
 //     return view('welcome');
 // });
 
-// retun blog home 
+// frontend 
 Route::get('/', [FrontendController::class, 'index'])->name('front.index');
-// single post 
-Route::get('/single-post', [FrontendController::class, 'single_post'])->name('front.single-post');
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
