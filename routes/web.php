@@ -21,9 +21,13 @@ use Illuminate\Support\Facades\Route;
 // frontend 
 Route::get('/', [FrontendController::class, 'index'])->name('front.index');
 
+Route::group(['prefix'=>'dashboard'],function(){
+    Route::get('/', [BackendController::class,'index'])->name('back.index');
+});
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+// breeze defult redirect with middleware
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';

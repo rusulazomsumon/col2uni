@@ -20,9 +20,9 @@ class AuthenticatedSessionController extends Controller
         // old defult of breeze 
         // return view('auth.login');
         // backend custom login page 
-        // return view('backend.auth.login');
+        return view('backend.auth.login');
         // backend mauster
-        return view('backend.auth.layouts.master');
+        // return view('backend.auth.layouts.master');
         
     }
 
