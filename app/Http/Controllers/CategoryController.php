@@ -77,7 +77,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('backend.modules.category.edit', compact('category'));
     }
 
     /**
@@ -89,7 +89,22 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        // validate data before submit
+        $request->validate([
+            'name'=>'required|min:3|max:255',
+            'slug'=>'required|min:3|max:255|unique:categories,slug,'.$category->id,
+            'order_by'=>'required|numeric',
+            'status'=>'required',
+        ]);
+
+        // update category
+        $category->update($request->all());
+
+        // flash massage after submission
+        session()->flash('cls','success');
+        session()->flash('msg','ক্যাটেগরি সফলভাবে আপডেট হয়েছে!');
+
+        return redirect()->route('category.index');
     }
 
     /**
@@ -100,6 +115,12 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+         // flash massage after submission
+         session()->flash('cls','danger');
+         session()->flash('msg','ক্যাটেগরি সফলভাবে ডিলিট হয়েছে!');
+ 
+         return redirect()->route('category.index');
+
     }
 }

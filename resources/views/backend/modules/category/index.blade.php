@@ -6,10 +6,18 @@
 @section('content')
 <div class="row">
     <div class="card">
-        <div class="card-header">
-            <h3 class="mb-0">All Categories</h3>
+        <div class="card-header d-flex justify-content-between">
+            <h3 class="mb-0">Post Categories</h3>
+            <a href="{{ route('category.create') }}" class="btn btn-success">
+                <i class="fas fa-plus "></i> Add New
+            </a>            
         </div>
         <div class="card-body">
+            @if(session('msg'))
+                <div class="alert alert-{{ session('cls') }}">
+                    {!! session('msg') !!}
+                </div>
+            @endif
             <table class="table table-striped table-bordered table-hover">
                 <thead>
                     <tr>
@@ -39,7 +47,7 @@
                                     <li class="fa-solid fa-eye m-3 text-success"></li>
                                 </a>
                                 {{-- Edit --}}
-                                <a href="{{ route('category.show', $category->id) }}">
+                                <a href="{{ route('category.edit', $category->id) }}">
                                     <li class="fa-solid fa-edit m-3"></li>
                                 </a>
                                 {{-- delete --}}
