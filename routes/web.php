@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Backend\BackendController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,11 +24,15 @@ Route::get('/', [FrontendController::class, 'index'])->name('front.index');
 
 Route::group(['prefix'=>'dashboard'],function(){
     Route::get('/', [BackendController::class,'index'])->name('back.index');
+    // category 
+    Route::resource('category', CategoryController::class);
 });
 
 // breeze defult redirect with middleware
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');
+
+
 
 require __DIR__.'/auth.php';

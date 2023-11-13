@@ -17,7 +17,7 @@
     {!! Form::close([]) !!}
     {{-- forgot password --}}
     <p class="mt-2">
-        Forgot Password? <a href="{{ route('password.request') }}">Reset</a>
+        {{-- Forgot Password? <a href="{{ route('password.request') }}">Reset</a> --}}
     </p>
     {{-- Sign Up --}}
     <p class="mt-2">
