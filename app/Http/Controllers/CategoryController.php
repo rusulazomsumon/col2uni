@@ -46,10 +46,11 @@ class CategoryController extends Controller
             'order_by'=>'required|numeric',
             'status'=>'required',
         ]);
-        // slug setting before submit 
-        $category_data = $request->all();
-        $category_data['slug']=Str::slug($request->input('slug'));
-        Category::create($category_data);
+        // slug setting before submit এটা বাংলা স্লাগ অভ্র তে সেভ করে 
+        // $category_data = $request->all();
+        // $category_data['slug']=Str::slug($request->input('slug'));
+        // Category::create($category_data);
+        Category::create($request->all());
         // flash massage after submission 
         session()->flash('cls','success');
         session()->flash('msg','Category Created Sucessfully');
