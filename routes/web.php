@@ -2,6 +2,7 @@
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Backend\BackendController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +27,7 @@ Route::group(['prefix'=>'dashboard'],function(){
     Route::get('/', [BackendController::class,'index'])->name('back.index');
     // category 
     Route::resource('category', CategoryController::class);
+    Route::resource('post', PostController::class);
 });
 
 // breeze defult redirect with middleware
