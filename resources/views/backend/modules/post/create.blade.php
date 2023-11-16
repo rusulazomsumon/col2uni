@@ -21,7 +21,7 @@
                         </ul>
                     </div>
                 @endif
-                {!! Form::open(['method'=>'post', 'route'=>'post.store']) !!}
+                {!! Form::open(['method'=>'post', 'route'=>'post.store', 'files'=>true]) !!}
                 {{-- form body  --}}
                 @include('backend.modules.post.form')
                 {{-- submin button --}}
@@ -34,9 +34,26 @@
         </div>
     </div>
 </div>
-{{-- Post slug autofill --}}
+{{-- CK Editors CSS Code --}}
+@push('css')
+    <style>
+        .ck.ck-editor__main>.ck-editor__editable{
+            min-height:250px;v
+        }
+    </style>
+@endpush
+{{-- Post slug autofill & CK Editor (RichText Editor) --}}
 @push('js')
+    {{-- ck editor for description cdn--}}
+    <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
+
     <script>
+        // ck editor code 
+            ClassicEditor.create( document.querySelector( '#description' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+        // slug code 
         $('#title').on('input', function(){
             let name = $(this).val()
             let slug = name.replaceAll(' ','-')

@@ -2,9 +2,16 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Requests\PostCreateRequest;
+use Illuminate\Support\Str;
+use Carbon\Carbon;
+
+
+
 
 class PostController extends Controller
 {
@@ -27,7 +34,7 @@ class PostController extends Controller
     public function create()
     {
         // sending category for post form
-        $categories = Category::pluck('name','id');
+        $categories = Category::where('status', 1)->pluck('name','id');
         return view('backend.modules.post.create', compact('categories'));
 
     }
@@ -38,9 +45,31 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    // using PostCreateRequest, for validatation
+    // public function store(PostCreateRequest $request)
+    // {
+          // Get the data from the form
+        //   $post_data = $request->all();
+        //   dd($post_data);
+        // photo preparation
+        // if($request->hasFile('photo')){
+        //     $file = $request->file('photo');
+        //     $name = Str::slug($request->input('slug'));
+        //     $height = 400;
+        //     $width = 1000;
+        //     $thumb_height = 150;
+        //     $thumb_width = 300;
+        //     $path = 'image/post/original';
+        //     $thumb_path = 'image/post/thumbnail';
+        //     // for image preparation Laravel Intervention Image
+        //     $post_data['photo'] = PhotouploadController::imageUpload($name, $height, $width, $path, $file);
+        //     PhotouploadController::imageUpload($name, $thumb_height, $thumb_width, $thumb_path, $file);
+
+        // }
+    // }
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**
