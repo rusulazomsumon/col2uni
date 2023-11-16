@@ -15,7 +15,8 @@ class PhotouploadController extends Controller
             ->save(public_path($path).$image_name, quality:50, format:'webp');
         return $image_name;
     }
-    public function imagUnlink($path, $name):void{
+    // image unlink during update post 
+    public static function imageUnlink($path, $name):void{
         $image_path = public_path($path).$name;
         if(file_exists($image_path)){
             unlink($image_path);

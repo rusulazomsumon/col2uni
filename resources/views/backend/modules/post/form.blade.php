@@ -5,8 +5,8 @@
  {!! Form::label('slug', 'Slug') !!}
  {!! Form::text('slug',  null, ['id'=>'slug','class'=>'form-control from-control-sm']) !!}
  <!-- Active Status -->
- {!! Form::label('status', 'Pist Status') !!}
- {!! Form::select('status',  [1=>'Active', 0=>'Inactive'],null, ['class'=>'form-select from-control-sm']) !!}
+ {!! Form::label('status', 'Post Status') !!}
+ {!! Form::select('status',  [1=>'Published', 0=>'Not Published'],null, ['class'=>'form-select from-control-sm']) !!}
  {{-- Categories --}}
  {!! Form::label('category_id', 'Post Category', ['class'=>'mt-2']) !!}
  {!! Form::select('category_id', $categories, null , ['class'=>'form-select from-control-sm', 'placeholder'=>'--select--']) !!}
