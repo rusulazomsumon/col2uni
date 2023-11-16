@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostCreateRequest;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
-
-
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\PhotouploadController;
 
 
 class PostController extends Controller
@@ -22,8 +21,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        
-        return view('backend.modules.post.index');
+        // post list show 10 posts per pej
+        $posts = Post::with('category', 'user')->latest()->paginate(10);
+        return view('backend.modules.post.index', compact('posts'));
+
     }
 
     /**
@@ -46,42 +47,38 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     // using PostCreateRequest, for validatation
-    // public function store(PostCreateRequest $request)
-    // {
+    public function store(PostCreateRequest $request)
+    {
           // Get the data from the form
         //   $post_data = $request->all();
         //   dd($post_data);
+
         // photo preparation
-        // if($request->hasFile('photo')){
-        //     $file = $request->file('photo');
-        //     $name = Str::slug($request->input('slug'));
-        //     $height = 400;
-        //     $width = 1000;
-        //     $thumb_height = 150;
-        //     $thumb_width = 300;
-        //     $path = 'image/post/original';
-        //     $thumb_path = 'image/post/thumbnail';
-        //     // for image preparation Laravel Intervention Image
-        //     $post_data['photo'] = PhotouploadController::imageUpload($name, $height, $width, $path, $file);
-        //     PhotouploadController::imageUpload($name, $thumb_height, $thumb_width, $thumb_path, $file);
+        $post_data = $request->except(['photo','slug']);
+        $post_data['slug'] = Str::slug($request->input('slug'));
+        $post_data['user_id'] = Auth::user()->id;
+        if($request->hasFile('photo')){
+            $file = $request->file('photo');
+            $name = Str::slug($request->input('slug'));
+            $height = 400;
+            $width = 1000;
+            $thumb_height = 150;
+            $thumb_width = 300;
+            $path = 'post/original/';
+            $thumb_path = 'post/thumbnail/';
+            // for image preparation Laravel Intervention Image
+            $post_data['photo'] = PhotouploadController::imageUpload($name, $height, $width, $path, $file);
+            PhotouploadController::imageUpload($name, $thumb_height, $thumb_width, $thumb_path, $file);
 
-        // }
-    // }
-    public function store(Request $request)
-    {
-        dd($request->all());
+        }
+        // saving post to database using model
+        $post = Post::create($post_data);
+        // sucessfull notification 
+        session()->flash('cls','success');
+        session()->flash('msg','পোস্টটি সফলভাবে লেখা হয়েছে!');
+        return redirect()->route('post.index');
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Post $post)
-    {
-        //
-    }
+    
 
     /**
      * Show the form for editing the specified resource.
