@@ -1,6 +1,6 @@
               <div class="aside-block">
                 <div class="trending p-3">
-                  <h6><b>সর্বশেষ সংযোজিত</b></h6>
+                  <h6><b>পাঠক প্রিয়</b></h6>
                   <ul class="trending-post">
                     @foreach($recent_post as $post)
                     <li>
