@@ -21,7 +21,16 @@ use Illuminate\Support\Facades\Route;
 // });
 
 // frontend 
+
 Route::get('/', [FrontendController::class, 'index'])->name('front.index');
+// categor slug
+Route::get('/category/{slug}', [FrontendController::class, 'index'])->name('front.category');
+// single post by slug
+Route::get('/single-post/{slug}', [FrontendController::class, 'single'])->name('front.single');
+// single post
+Route::get('/single-post', [FrontendController::class, 'single'])->name('front.single');
+
+
 
 Route::group(['prefix'=>'dashboard'],function(){
     Route::get('/', [BackendController::class,'index'])->name('back.index');

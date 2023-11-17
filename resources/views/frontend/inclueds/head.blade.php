@@ -4,6 +4,8 @@
   <title>myBlog Template</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
+  {{-- icon cdn backup --}}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
   <!-- Favicons -->  
   <link href="{{ asset('frontend/assets/img/favicon.png') }}" rel="icon">
