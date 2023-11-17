@@ -8,7 +8,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   "use strict";
 
-  /**
+  /** 
    * Sticky header on scroll
    */
   const selectHeader = document.querySelector('#header');
@@ -92,8 +92,29 @@ document.addEventListener('DOMContentLoaded', () => {
   /**
    * Hero Slider
    */
+  // var swiper = new Swiper(".sliderFeaturedPosts", {
+  //   spaceBetween: 0,
+  //   speed: 500,
+  //   centeredSlides: true,
+  //   loop: true,
+  //   slideToClickedSlide: true,
+  //   autoplay: {
+  //     delay: 3000,
+  //     disableOnInteraction: false,
+  //   },
+  //   pagination: {
+  //     el: ".swiper-pagination",
+  //     clickable: true,
+  //   },
+  //   navigation: {
+  //     nextEl: ".custom-swiper-button-next",
+  //     prevEl: ".custom-swiper-button-prev",
+  //   },
+  // });
+
   var swiper = new Swiper(".sliderFeaturedPosts", {
-    spaceBetween: 0,
+    slidesPerView: 1, // Default slides per view
+    spaceBetween: 20,
     speed: 500,
     centeredSlides: true,
     loop: true,
@@ -110,7 +131,15 @@ document.addEventListener('DOMContentLoaded', () => {
       nextEl: ".custom-swiper-button-next",
       prevEl: ".custom-swiper-button-prev",
     },
+    breakpoints: {
+      // When window width is less than or equal to 767px, show only 1 slide
+      767: {
+        slidesPerView: 3,
+      },
+    },
   });
+  
+  
 
   /**
    * Open and close the search form.

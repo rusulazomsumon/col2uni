@@ -2,48 +2,25 @@
 
 <!-- content -->
 @section('content')
- <!-- ======= Hero Slider Section ======= -->
+    <!-- ======= Hero Slider Section ======= -->
     <section id="hero-slider" class="hero-slider">
       <div class="container-md" data-aos="fade-in">
         <div class="row">
           <div class="col-12">
             <div class="swiper sliderFeaturedPosts">
-              <div class="swiper-wrapper">
+              <div class="swiper-wrapper" style="max-height: 200px;">
+                {{-- slider content --}}
+                @foreach ($posts as $post)
                 <div class="swiper-slide">
-                  <a href="single-post.php" class="img-bg d-flex align-items-end" style="background-image: url('{{ asset('frontend/assets/img/post-slide-1.jpg') }}');">
+                  <a href="#" class="img-bg d-flex align-items-end" style="background-image: url('{{ asset('/post/thumbnail/'.$post->photo) }}'); height: 200px; background-size: cover;">
                     <div class="img-bg-inner">
-                      <h2>The Best Homemade Masks for Face (keep the Pimples Away)</h2>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque est mollitia! Beatae minima assumenda repellat harum vero, officiis ipsam magnam obcaecati cumque maxime inventore repudiandae quidem necessitatibus rem atque.</p>
+                      <h6 class="text-light" style="margin-bottom: 0; padding: 1px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);"><b>{{ $post->title }}</b></h6>
+                      {{-- <p style="margin-bottom: 0; padding: 10px;">{{ html_entity_decode(strip_tags(Str::limit($post->description, 50))) }}</p> --}}
                     </div>
                   </a>
                 </div>
-
-                <div class="swiper-slide">
-                  <a href="single-post.php" class="img-bg d-flex align-items-end" style="background-image: url('{{ asset('frontend/assets/img/post-slide-2.jpg') }}');">
-                    <div class="img-bg-inner">
-                      <h2>17 Pictures of Medium Length Hair in Layers That Will Inspire Your New Haircut</h2>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque est mollitia! Beatae minima assumenda repellat harum vero, officiis ipsam magnam obcaecati cumque maxime inventore repudiandae quidem necessitatibus rem atque.</p>
-                    </div>
-                  </a>
-                </div>
-
-                <div class="swiper-slide">
-                  <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url('{{ asset('frontend/assets/img/post-slide-3.jpg') }}');">
-                    <div class="img-bg-inner">
-                      <h2>13 Amazing Poems from Shel Silverstein with Valuable Life Lessons</h2>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque est mollitia! Beatae minima assumenda repellat harum vero, officiis ipsam magnam obcaecati cumque maxime inventore repudiandae quidem necessitatibus rem atque.</p>
-                    </div>
-                  </a>
-                </div>
-
-                <div class="swiper-slide">
-                  <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url('{{ asset('frontend/assets/img/post-slide-4.jpg') }}');">
-                    <div class="img-bg-inner">
-                      <h2>9 Half-up/half-down Hairstyles for Long and Medium Hair</h2>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque est mollitia! Beatae minima assumenda repellat harum vero, officiis ipsam magnam obcaecati cumque maxime inventore repudiandae quidem necessitatibus rem atque.</p>
-                    </div>
-                  </a>
-                </div>
+                @endforeach
+                {{--end slider content --}}
               </div>
               <div class="custom-swiper-button-next">
                 <span class="bi-chevron-right"></span>
@@ -57,7 +34,8 @@
           </div>
         </div>
       </div>
-    </section><!-- End Hero Slider Section -->
+    </section>
+    <!-- End Hero Slider Section -->
 
     <!-- ======= Blog Main Body Section ======= -->
     <section id="posts" class="posts">
@@ -69,16 +47,24 @@
             {{-- Post Feture Area 1 --}}
             <div class="row">
               {{-- post grid feture post --}}
-              <div class="col-sm-6">
+              <div class="col-sm-8">
                 {{-- only 1st post info for feture --}}
-                <h5 class="bg-success text-dark p-3">সর্বশেষ সংযোজিত</h5>
+                <h5 class="bg-success text-light p-3">সর্বশেষ সংযোজিত</h5>
                 @if($posts->isNotEmpty())
                 <?php $firstPost = $posts->first(); ?>
 
                 <div class="post-entry-1 lg">
-                  <a href="single-post.html"><img src="{{asset('/post/original/'.$firstPost->photo)}}" alt="{{ $firstPost->title }}" class="img-fluid"></a>
-                  <div class="post-meta"><span class="date">{{ $firstPost->category?->name }}</span> <span class="mx-1">&bullet;</span> <span>{{ $firstPost->created_at->format('M d, Y') }}</span></div>
-                  <h2><a href="single-post.html">{{ $firstPost->title }}</a></h2>
+                  {{-- image --}}
+                  <a href="{{ route('front.single', $firstPost->slug) }}"><img src="{{asset('/post/original/'.$firstPost->photo)}}" alt="{{ $firstPost->title }}" class="img-fluid"></a>
+                  {{-- post meta --}}
+                  <div class="post-meta">
+                    <span class="date">{{ $firstPost->category?->name }}</span> 
+                    <span class="mx-1">&bullet;</span> 
+                    <span>{{ $firstPost->created_at->format('M d, Y') }}</span>
+                  </div>
+                  {{-- title --}}
+                  <h2><a href="{{ route('front.single', $firstPost->slug) }}">{{ $firstPost->title }}</a></h2>
+                  {{-- description --}}
                   <p class="mb-4 d-block">{{ html_entity_decode(strip_tags(Str::limit($firstPost->description, 300))) }} <a href="{{ route('front.single', $firstPost->slug) }}">বিস্তারিত...</a></p>
 
                   {{-- <div class="d-flex align-items-center author">
@@ -93,8 +79,8 @@
 
               </div>
               {{-- post grid small post --}}
-              <div class="col-sm-6">
-                  <div class="col-lg-12 border-start custom-border">
+              <div class="col-sm-4">
+                  <div class="col-lg-12 ">
                     @php
                       $key = 0;
                     @endphp
@@ -103,7 +89,7 @@
                       @if ($key > 0)
                       <hr>
                       <div class="post-entry-1"> 
-                        <a href="{{ route('front.single', $post->slug) }}"><img src="{{ asset('/post/original/' . $post->photo) }}" alt="{{ $post->title }}" class="img-fluid"></a>
+                        <a href="{{ route('front.single', $post->slug) }}"><img src="{{ asset('/post/thumbnail/' . $post->photo) }}" alt="{{ $post->title }}" class="img-fluid"></a>
                         <div class="post-meta"><span class="date"><a href="#">{{ $post->category?->name }}</a></span> <span class="mx-1">&bullet;</span> <span>{{ $post->created_at->format('M d, Y') }}</span></div>
                         <h2><a href="{{ route('front.single', $post->slug) }}">{{ $post->title }}</a></h2>
                       </div>  
@@ -124,7 +110,7 @@
               </div>
             </div>
             {{--||||||||||||||| Post Feture Area 3 (Category Wise Post)  |||||||||||||||--}}
-            <div class="row g-5">
+            <div class="row g-5 mt-3">
               {{-- col1 --}}
               <div class="col-lg-4 border-start custom-border pt-1">
                 <h6 class="p-1 bg-info"><a href="#">বাংলাদেশ</a></h6>

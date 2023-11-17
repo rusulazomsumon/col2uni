@@ -34,7 +34,7 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
         // category, post query global / for all page
         $categories = Category::where('status', 1)->orderBy('order_by', 'asc')->get();
-        $posts = Post::where('status', 1)->latest()->take(5)->get();
+        $posts = Post::where('status', 1)->inRandomOrder()->take(5)->get();
         // sharering will all 
         View::share(['categories' => $categories, 'recent_post'=>$posts]);
     }
