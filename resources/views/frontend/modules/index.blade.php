@@ -55,12 +55,12 @@
           {{--############## %%%%%%Post Grid Area%%%%%% ##############--}}
           <div class="col-lg-8">
 
-            {{--||||||||||||||| Post Feture Area 1 ||||||||||||||||||--}}
+            {{--||||||||||||||| Post Feture Area =>1 ||||||||||||||||||--}}
             <div class="row">
               {{-- post grid feture post --}}
               <div class="col-sm-8">
-                {{-- only 1st post info for feture --}}
-                <h5 class="bg-success text-light p-3">সর্বশেষ সংযোজিত</h5>
+                <h5 class="bg-success text-light p-3">নির্বাচিত</h5>
+
                 @if($posts->isNotEmpty())
                 <?php $firstPost = $posts->first(); ?>
 
@@ -91,6 +91,7 @@
               </div>
               {{-- post grid small post --}}
               <div class="col-sm-4">
+                
                   <div class="col-lg-12 ">
                     @php
                       $key = 0;
@@ -114,7 +115,7 @@
               </div>
             </div>
 
-            {{--||||||||||||||| Post Feture Area 2 (Advertisement) |||||||||||||||--}}
+            {{--||||||||||||||| Post Feture Area =>2 (Advertisement) |||||||||||||||--}}
             <div class="row border">
               <div class="col-lg-12 p-3">
                 <h2>Advertisement</h2>
@@ -122,125 +123,85 @@
               </div>
             </div>
 
-            {{--||||||||||||||| Post Feture Area 3 (Category Wise Post)  |||||||||||||||--}}
-            <div class="row g-5 mt-3">
-
-              {{-- @@@col1 cat order by 1@@@ --}}
-              <div class="col-lg-4 border-start custom-border pt-1">
-                {{-- if for only show 2 post per section , beacuse backend post controller sending 20 post using paginate --}}
-                @php
-                  $counter = 0;
-                @endphp
-                @foreach ($posts as $post)
-                    @if ($post->category->order_by == 1)
-                      {{-- for showing related post column title --}}
-                        @if ($loop->first)
-                            <h6 class="p-1 bg-info"><a href="#">{{ $post->category->name }}</a></h6>
-                        @endif
-                        <hr>
-                        {{-- only 2 post show --}}
-                        @if ($counter < 2) 
-                        <div class="post-entry-1">
-                            <a href="{{ route('front.single', $post->slug) }}">
-                                <img src="{{ asset('/post/thumbnail/' . $post->photo) }}" alt="{{ $post->title }}" class="img-fluid">
-                            </a>
-                            <div class="post-meta">
-                                <span class="date">
-                                    <a href="#">{{ $post->category->name }}</a>
-                                </span>
-                                <span class="mx-1">&bullet;</span>
-                                <span>{{ $post->created_at->format('M d, Y') }}</span>
-                            </div>
-                            <h2><a href="{{ route('front.single', $post->slug) }}">{{ $post->title }}</a></h2>
-                        </div>
-                        @php
-                            $counter++;
-                        @endphp
-                        @endif
-                    @endif
-                @endforeach
-              </div>
-              
-              {{-- @@@col2 cat order by 2@@@ --}}
-              <div class="col-lg-4 border-start custom-border pt-1">
-                {{-- if for only show 2 post per section , beacuse backend post controller sending 20 post using paginate --}}
-                @php
-                  $counter = 0;
-                @endphp
-                @foreach ($posts as $post)
-                    @if ($post->category->order_by == 2)
-                      {{-- for showing related post column title --}}
-                        @if ($loop->first)
-                            <h6 class="p-1 bg-info"><a href="#">{{ $post->category->name }}</a></h6>
-                        @endif
-                        <hr>
-                        {{-- only 2 post show --}}
-                        @if ($counter < 2) 
-                        <div class="post-entry-1">
-                            <a href="{{ route('front.single', $post->slug) }}">
-                                <img src="{{ asset('/post/thumbnail/' . $post->photo) }}" alt="{{ $post->title }}" class="img-fluid">
-                            </a>
-                            <div class="post-meta">
-                                <span class="date">
-                                    <a href="#">{{ $post->category->name }}</a>
-                                </span>
-                                <span class="mx-1">&bullet;</span>
-                                <span>{{ $post->created_at->format('M d, Y') }}</span>
-                            </div>
-                            <h2><a href="{{ route('front.single', $post->slug) }}">{{ $post->title }}</a></h2>
-                        </div>
-                        @php
-                            $counter++;
-                        @endphp
-                        @endif
-                    @endif
-                @endforeach
-              </div>
-
-              {{-- @@@col3 cat order by 3@@@ --}}
-              <div class="col-lg-4 border-start custom-border pt-1">
-                {{-- if for only show 2 post per section , beacuse backend post controller sending 20 post using paginate --}}
-                @php
-                  $counter = 0;
-                @endphp
-                @foreach ($posts as $post)
-                    @if ($post->category->order_by == 3)
-                      {{-- for showing related post column title --}}
-                        @if ($loop->first)
-                            <h6 class="p-1 bg-info"><a href="#">{{ $post->category->name }}</a></h6>
-                        @endif
-                        <hr>
-                        {{-- only 2 post show --}}
-                        @if ($counter < 2) 
-                        <div class="post-entry-1">
-                            <a href="{{ route('front.single', $post->slug) }}">
-                                <img src="{{ asset('/post/thumbnail/' . $post->photo) }}" alt="{{ $post->title }}" class="img-fluid">
-                            </a>
-                            <div class="post-meta">
-                                <span class="date">
-                                    <a href="#">{{ $post->category->name }}</a>
-                                </span>
-                                <span class="mx-1">&bullet;</span>
-                                <span>{{ $post->created_at->format('M d, Y') }}</span>
-                            </div>
-                            <h2><a href="{{ route('front.single', $post->slug) }}">{{ $post->title }}</a></h2>
-                        </div>
-                        @php
-                            $counter++;
-                        @endphp
-                        @endif
-                    @endif
-                @endforeach
-              </div>
-
-            </div>
-            {{--||||||||||||||| Post Feture Area 4 (Advertisement) |||||||||||||||--}}
+            {{--||||||||||||||| Post Feture Area =>3 (Category Wise Post - columb)  |||||||||||||||--}}
+            
             <div class="row border">
+                <div class="col-lg-12 p-3">
+                    {{-- @@@ hr post row 1 @@@ --}}
+                    <div class="row">
+                      <h5 class="bg-success text-light p-3">শিক্ষাঙ্গন</h5>
+                      <p style="color: #555; font-style: italic;">স্কুল, কলেজ, বিশ্ববিদ্যালয় ও বিসিএসের একাডেমিক বিষয়ে জানতে এই লেখাগুলি পড়ুন</p>
+                      @php
+                        $counter = 0;
+                      @endphp
+                        @foreach ($posts as $post)
+                        @if (in_array($post->category->order_by, [2, 3, 8,18]))
+                          {{-- only 5 post show --}}
+                          @if ($counter < 5) 
+                            <div class="col-md-4 mb-4">
+                                <div class="card">
+                                    <img src="{{ asset('/post/thumbnail/' . $post->photo) }}" alt="{{ $post->title }}" class="card-img-top img-fluid">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><a href="{{ route('front.single', $post->slug) }}">{{ $post->title }}</a></h5>
+                                        <p class="card-text">{{ $post->created_at->format('M d, Y') }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            @php
+                        $counter++;
+                        @endphp
+                      @endif
+                    @endif
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+
+            {{--||||||||||||||| Post Feture Area =>4 (Advertisement) |||||||||||||||--}}
+            <div class="row">
               <div class="col-lg-12 p-3">
                 <h2>Advertisement</h2>
                 <img src="https://picsum.photos/720/90?random" class="img-fluid" alt="Advertisement Image">
               </div>
             </div>
+
+            {{--||||||||||||||| Post Feture Area =>5 (Category Wise Post - horizontl) |||||||||||||||--}}
+
+              {{-- @@@ hr post row 1 @@@ --}}
+              {{-- Assuming $posts is the array of posts --}}
+              <div class="row mt-5">
+                <h5 class="bg-success text-light p-3">ক্যারিয়ার</h5>
+                <p style="color: #555; font-style: italic;">চাকরী, চাকরির প্রস্তুতি, ও চাকরির খবর জানতে এই লেখাগুলি পড়ুন</p>
+                @php
+                  $counter = 0;
+                @endphp
+                @foreach ($posts as $post)
+                    @if (in_array($post->category->order_by, [4, 5, 6]))
+                      {{-- only 5 post show --}}
+                      @if ($counter < 5) 
+                        <div class="col-md-12 mb-4 p-1">
+                            <div class="card">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="{{ asset('/post/thumbnail/' . $post->photo) }}" alt="{{ $post->title }}" class="img-fluid">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><a href="{{ route('front.single', $post->slug) }}">{{ $post->title }}</a></h5>
+                                            <p class="card-text">{{ $post->created_at->format('M d, Y') }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @php
+                        $counter++;
+                        @endphp
+                      @endif
+                    @endif
+                  @endforeach
+
+              </div>    
 
           </div>
           {{-- end of post feture area --}}

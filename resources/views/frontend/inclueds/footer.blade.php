@@ -22,22 +22,22 @@
         </ul>
       </div>
       <div class="col-6 col-lg-2">
-        <h3 class="footer-heading">Categories</h3>
-        <ul class="footer-links list-unstyled">
-          <li><a href="category.html"><i class="bi bi-chevron-right"></i> Business</a></li>
-          <li><a href="category.html"><i class="bi bi-chevron-right"></i> Culture</a></li>
-          <li><a href="category.html"><i class="bi bi-chevron-right"></i> Sport</a></li>
-          <li><a href="category.html"><i class="bi bi-chevron-right"></i> Food</a></li>
-          <li><a href="category.html"><i class="bi bi-chevron-right"></i> Politics</a></li>
-          <li><a href="category.html"><i class="bi bi-chevron-right"></i> Celebrity</a></li>
-          <li><a href="category.html"><i class="bi bi-chevron-right"></i> Startups</a></li>
-          <li><a href="category.html"><i class="bi bi-chevron-right"></i> Travel</a></li>
-
+        <h3 class="footer-heading"> ক্যাটেগরি </h3>
+        <ul class="list-unstyled">
+          @foreach ($categories as $category)
+          <li>
+            <a class="text-light" href="{{ route('front.category', $category->slug) }}">
+              <i class="bi bi-folder" style="color: #998305"></i>
+                {{ $category->name }} 
+            </a>
+          </li> 
+          @endforeach
         </ul>
       </div>
 
+      {{-- recent post  --}}
       <div class="col-lg-4">
-        <h3 class="footer-heading">Recent Posts</h3>
+        <h3 class="footer-heading">সম্প্রতিক</h3>
 
         <ul class="footer-links footer-blog-entry list-unstyled">
           <li>
@@ -83,6 +83,7 @@
         </ul>
 
       </div>
+
     </div>
   </div>
 </div>

@@ -1,12 +1,14 @@
               <div class="aside-block">
-                {{-- |Facebook Page --}}
+
+                {{-- google news  --}}
                 <div class="trending">
-                  <h6 class="bg-warning text-light p-3"><b>ফেসবুকে আমারা</b></h6>
-                  {{-- page links --}}
-                  <div class="facebook-preview">
-                    <iframe src="https://www.facebook.com/plugins/page.php?href=YOUR_FACEBOOK_PAGE_LINK&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=YOUR_APP_ID" width="340" height="300" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="encrypted-media"></iframe>
+                  <div class="google-news-banner">
+                    <a href="#">
+                      <img src="https://www.iamabiker.com/wp-content/uploads/2022/09/Follow-IAMABIKER-Google.png" alt="Google News" class="img-fluid">
+                    </a>
+                  </div>
                 </div>
-                </div>
+            
                 {{-- populer post --}}
                 <div class="trending">
                   <h6 class="bg-success text-light p-3"><b>পাঠক প্রিয়</b></h6>
@@ -22,6 +24,17 @@
                     @endforeach                
                   </ul>
                 </div>
+
+                 
+                {{-- |Facebook Page --}}
+                <div class="trending mt-3">
+                  <h6 class="bg-danger text-light p-3"><b>ফেসবুকে আমারা</b></h6>
+                  {{-- page links --}}
+                  <div class="facebook-preview">
+                    <iframe src="https://www.facebook.com/plugins/page.php?href=YOUR_FACEBOOK_PAGE_LINK&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=YOUR_APP_ID" width="340" height="300" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="encrypted-media"></iframe>
+                  </div>
+                </div>
+
                 {{-- categories --}}
                 <div class="trending mt-3">
                   <h6 class="bg-dark text-light p-3"><b>বিভাগ গুলি</b></h6>
@@ -35,6 +48,41 @@
                     </li> 
                     @endforeach
                   </ul>
+                </div>
+
+                {{-- AD1  --}}
+                <div class="trending">
+                  <div class="google-news-banner">
+                    <a href="#">
+                      <img src="https://qph.cf2.quoracdn.net/main-qimg-7f8846ab9f3441b07c01d53c96df617d-pjlq" alt="Google News" class="img-fluid">
+                    </a>
+                  </div>
+                </div>
+
+                {{-- tags cloud --}}
+                <div class="aside-block mt-5">
+                  <h3 class="aside-title">ট্যাগ সমূহ</h3>
+                  <ul class="aside-tags list-unstyled">
+                    <li><a href="#" class="bg-primary text-white">কলেজ</a></li>
+                    <li><a href="#" class="bg-success text-white">কোর্স</a></li>
+                    <li><a href="#" class="bg-info text-white">বিসিএস</a></li>
+                    <li><a href="#" class="bg-warning text-white">শিখা</a></li>
+                    <li><a href="#" class="bg-danger text-white">বিজ্ঞান প্রযুক্তি</a></li>
+                    <li><a href="#" class="bg-secondary text-white">লেখাপড়া</a></li>
+                    <li><a href="#" class="bg-dark text-white">ক্যাম্পাস</a></li>
+                    <li><a href="#" class="bg-light text-dark">স্কিল</a></li>
+                    <li><a href="#" class="bg-danger text-white">টিপস ও ট্রিক্স</a></li>
+                    <li><a href="#" class="bg-info text-white">রূপচর্চা</a></li>
+                  </ul>
+                </div>
+
+                 {{-- AD2  --}}
+                 <div class="trending">
+                  <div class="google-news-banner">
+                    <a href="#">
+                      <img src="https://media.licdn.com/dms/image/C5612AQEoBVnpxa879w/article-cover_image-shrink_600_2000/0/1520103821627?e=2147483647&v=beta&t=6O68ORV9LCg5J4xkA7tPZV2nIdxdj-x7RbKwXBnKVY4" alt="Google News" class="img-fluid">
+                    </a>
+                  </div>
                 </div>
 
                 <!-- ######LoginForm####### -->
