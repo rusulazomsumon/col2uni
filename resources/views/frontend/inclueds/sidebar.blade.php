@@ -1,4 +1,13 @@
               <div class="aside-block">
+                {{-- |Facebook Page --}}
+                <div class="trending">
+                  <h6 class="bg-warning text-light p-3"><b>ফেসবুকে আমারা</b></h6>
+                  {{-- page links --}}
+                  <div class="facebook-preview">
+                    <iframe src="https://www.facebook.com/plugins/page.php?href=YOUR_FACEBOOK_PAGE_LINK&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=YOUR_APP_ID" width="340" height="300" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="encrypted-media"></iframe>
+                </div>
+                </div>
+                {{-- populer post --}}
                 <div class="trending">
                   <h6 class="bg-success text-light p-3"><b>পাঠক প্রিয়</b></h6>
                   <ul class="trending-post">
@@ -27,6 +36,7 @@
                     @endforeach
                   </ul>
                 </div>
+
                 <!-- ######LoginForm####### -->
                 <div class="login pt-5">
                   <form>
@@ -41,4 +51,5 @@
                       <button type="submit" class="btn btn-primary">Login</button>
                   </form>
                 </div>
+                {{--  --}}
               </div>
