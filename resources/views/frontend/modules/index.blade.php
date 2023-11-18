@@ -10,15 +10,25 @@
             <div class="swiper sliderFeaturedPosts">
               <div class="swiper-wrapper" style="max-height: 200px;">
                 {{-- slider content --}}
+                {{-- post controller ২০ টা পোস্ট পাঠায়, তাই আমারা শুধু সর্বশেষ ৫ টা শো করতে if condition দিয়েছি --}}
+                @php
+                  $counter = 0;
+                @endphp
+
                 @foreach ($posts as $post)
-                <div class="swiper-slide">
-                  <a href="#" class="img-bg d-flex align-items-end" style="background-image: url('{{ asset('/post/thumbnail/'.$post->photo) }}'); height: 200px; background-size: cover;">
-                    <div class="img-bg-inner">
-                      <h6 class="text-light" style="margin-bottom: 0; padding: 1px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);"><b>{{ $post->title }}</b></h6>
-                      {{-- <p style="margin-bottom: 0; padding: 10px;">{{ html_entity_decode(strip_tags(Str::limit($post->description, 50))) }}</p> --}}
-                    </div>
-                  </a>
-                </div>
+                    @if ($counter < 5)
+                        <div class="swiper-slide">
+                            <a href="#" class="img-bg d-flex align-items-end" style="background-image: url('{{ asset('/post/thumbnail/'.$post->photo) }}'); height: 200px; background-size: cover;">
+                                <div class="img-bg-inner">
+                                    <h6 class="text-light" style="margin-bottom: 0; padding: 1px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);"><b>{{ $post->title }}</b></h6>
+                                </div>
+                            </a>
+                        </div>
+
+                        @php
+                            $counter++;
+                        @endphp
+                    @endif
                 @endforeach
                 {{--end slider content --}}
               </div>
@@ -42,9 +52,10 @@
       <div class="container" data-aos="fade-up">
         {{-- Post area + Sidebar --}}
         <div class="row g-5">
-          {{--||||||||||||||| %%%%%%Post Grid Area%%%%%% |||||||||||||||--}}
+          {{--############## %%%%%%Post Grid Area%%%%%% ##############--}}
           <div class="col-lg-8">
-            {{-- Post Feture Area 1 --}}
+
+            {{--||||||||||||||| Post Feture Area 1 ||||||||||||||||||--}}
             <div class="row">
               {{-- post grid feture post --}}
               <div class="col-sm-8">
@@ -86,7 +97,7 @@
                     @endphp
                     @foreach ($posts as $post)
                     {{-- skip 1st post, bacause 1st post will show as feture --}}
-                      @if ($key > 0)
+                      @if ($key > 0 && $key < 3)
                       <hr>
                       <div class="post-entry-1"> 
                         <a href="{{ route('front.single', $post->slug) }}"><img src="{{ asset('/post/thumbnail/' . $post->photo) }}" alt="{{ $post->title }}" class="img-fluid"></a>
@@ -102,6 +113,7 @@
                   </div>
               </div>
             </div>
+
             {{--||||||||||||||| Post Feture Area 2 (Advertisement) |||||||||||||||--}}
             <div class="row border">
               <div class="col-lg-12 p-3">
@@ -109,49 +121,116 @@
                 <img src="https://picsum.photos/720/90?random" class="img-fluid" alt="Advertisement Image">
               </div>
             </div>
+
             {{--||||||||||||||| Post Feture Area 3 (Category Wise Post)  |||||||||||||||--}}
             <div class="row g-5 mt-3">
-              {{-- col1 --}}
+
+              {{-- @@@col1 cat order by 1@@@ --}}
               <div class="col-lg-4 border-start custom-border pt-1">
-                <h6 class="p-1 bg-info"><a href="#">বাংলাদেশ</a></h6>
-                <div class="post-entry-1">
-                  <a href="single-post.html"><img src="{{ asset('frontend/assets/img/post-landscape-2.jpg') }}" alt="" class="img-fluid"></a>
-                  <div class="post-meta"><span class="date">Sport</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                  <h2><a href="single-post.html">Let’s Get Back to Work, New York</a></h2>
-                </div>
-                <div class="post-entry-1">
-                  <a href="single-post.html"><img src="{{ asset('frontend/assets/img/post-landscape-5.jpg') }}" alt="" class="img-fluid"></a>
-                  <div class="post-meta"><span class="date">Food</span> <span class="mx-1">&bullet;</span> <span>Jul 17th '22</span></div>
-                  <h2><a href="single-post.html">How to Avoid Distraction and Stay Focused During Video Calls?</a></h2>
-                </div>
+                {{-- if for only show 2 post per section , beacuse backend post controller sending 20 post using paginate --}}
+                @php
+                  $counter = 0;
+                @endphp
+                @foreach ($posts as $post)
+                    @if ($post->category->order_by == 1)
+                      {{-- for showing related post column title --}}
+                        @if ($loop->first)
+                            <h6 class="p-1 bg-info"><a href="#">{{ $post->category->name }}</a></h6>
+                        @endif
+                        <hr>
+                        {{-- only 2 post show --}}
+                        @if ($counter < 2) 
+                        <div class="post-entry-1">
+                            <a href="{{ route('front.single', $post->slug) }}">
+                                <img src="{{ asset('/post/thumbnail/' . $post->photo) }}" alt="{{ $post->title }}" class="img-fluid">
+                            </a>
+                            <div class="post-meta">
+                                <span class="date">
+                                    <a href="#">{{ $post->category->name }}</a>
+                                </span>
+                                <span class="mx-1">&bullet;</span>
+                                <span>{{ $post->created_at->format('M d, Y') }}</span>
+                            </div>
+                            <h2><a href="{{ route('front.single', $post->slug) }}">{{ $post->title }}</a></h2>
+                        </div>
+                        @php
+                            $counter++;
+                        @endphp
+                        @endif
+                    @endif
+                @endforeach
               </div>
-              {{-- col2 --}}
+              
+              {{-- @@@col2 cat order by 2@@@ --}}
               <div class="col-lg-4 border-start custom-border pt-1">
-                <h6 class="p-1 bg-danger"><a href="#">শিক্ষা বার্তা</a></h6>
-                <div class="post-entry-1">
-                  <a href="single-post.html"><img src="{{ asset('frontend/assets/img/post-landscape-2.jpg') }}" alt="" class="img-fluid"></a>
-                  <div class="post-meta"><span class="date">Sport</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                  <h2><a href="single-post.html">Let’s Get Back to Work, New York</a></h2>
-                </div>
-                <div class="post-entry-1">
-                  <a href="single-post.html"><img src="{{ asset('frontend/assets/img/post-landscape-5.jpg') }}" alt="" class="img-fluid"></a>
-                  <div class="post-meta"><span class="date">Food</span> <span class="mx-1">&bullet;</span> <span>Jul 17th '22</span></div>
-                  <h2><a href="single-post.html">How to Avoid Distraction and Stay Focused During Video Calls?</a></h2>
-                </div>
+                {{-- if for only show 2 post per section , beacuse backend post controller sending 20 post using paginate --}}
+                @php
+                  $counter = 0;
+                @endphp
+                @foreach ($posts as $post)
+                    @if ($post->category->order_by == 2)
+                      {{-- for showing related post column title --}}
+                        @if ($loop->first)
+                            <h6 class="p-1 bg-info"><a href="#">{{ $post->category->name }}</a></h6>
+                        @endif
+                        <hr>
+                        {{-- only 2 post show --}}
+                        @if ($counter < 2) 
+                        <div class="post-entry-1">
+                            <a href="{{ route('front.single', $post->slug) }}">
+                                <img src="{{ asset('/post/thumbnail/' . $post->photo) }}" alt="{{ $post->title }}" class="img-fluid">
+                            </a>
+                            <div class="post-meta">
+                                <span class="date">
+                                    <a href="#">{{ $post->category->name }}</a>
+                                </span>
+                                <span class="mx-1">&bullet;</span>
+                                <span>{{ $post->created_at->format('M d, Y') }}</span>
+                            </div>
+                            <h2><a href="{{ route('front.single', $post->slug) }}">{{ $post->title }}</a></h2>
+                        </div>
+                        @php
+                            $counter++;
+                        @endphp
+                        @endif
+                    @endif
+                @endforeach
               </div>
-              {{-- col3 --}}
+
+              {{-- @@@col3 cat order by 3@@@ --}}
               <div class="col-lg-4 border-start custom-border pt-1">
-                <h6 class="p-1 bg-success"><a href="#">ইতিহাস</a></h6>
-                <div class="post-entry-1">
-                  <a href="single-post.html"><img src="{{ asset('frontend/assets/img/post-landscape-2.jpg') }}" alt="" class="img-fluid"></a>
-                  <div class="post-meta"><span class="date">Sport</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                  <h2><a href="single-post.html">Let’s Get Back to Work, New York</a></h2>
-                </div>
-                <div class="post-entry-1">
-                  <a href="single-post.html"><img src="{{ asset('frontend/assets/img/post-landscape-5.jpg') }}" alt="" class="img-fluid"></a>
-                  <div class="post-meta"><span class="date">Food</span> <span class="mx-1">&bullet;</span> <span>Jul 17th '22</span></div>
-                  <h2><a href="single-post.html">How to Avoid Distraction and Stay Focused During Video Calls?</a></h2>
-                </div>
+                {{-- if for only show 2 post per section , beacuse backend post controller sending 20 post using paginate --}}
+                @php
+                  $counter = 0;
+                @endphp
+                @foreach ($posts as $post)
+                    @if ($post->category->order_by == 3)
+                      {{-- for showing related post column title --}}
+                        @if ($loop->first)
+                            <h6 class="p-1 bg-info"><a href="#">{{ $post->category->name }}</a></h6>
+                        @endif
+                        <hr>
+                        {{-- only 2 post show --}}
+                        @if ($counter < 2) 
+                        <div class="post-entry-1">
+                            <a href="{{ route('front.single', $post->slug) }}">
+                                <img src="{{ asset('/post/thumbnail/' . $post->photo) }}" alt="{{ $post->title }}" class="img-fluid">
+                            </a>
+                            <div class="post-meta">
+                                <span class="date">
+                                    <a href="#">{{ $post->category->name }}</a>
+                                </span>
+                                <span class="mx-1">&bullet;</span>
+                                <span>{{ $post->created_at->format('M d, Y') }}</span>
+                            </div>
+                            <h2><a href="{{ route('front.single', $post->slug) }}">{{ $post->title }}</a></h2>
+                        </div>
+                        @php
+                            $counter++;
+                        @endphp
+                        @endif
+                    @endif
+                @endforeach
               </div>
 
             </div>
@@ -175,4 +254,4 @@
         <!-- End .row -->
       </div>
     </section> 
-    @endsection
+@endsection
