@@ -2,9 +2,10 @@
 
                 {{-- google news  --}}
                 <div class="trending">
+                  <h6 class="bg-warning text-light p-3"><b>Google News</b></h6>
                   <div class="google-news-banner">
                     <a href="#">
-                      <img src="https://www.iamabiker.com/wp-content/uploads/2022/09/Follow-IAMABIKER-Google.png" alt="Google News" class="img-fluid">
+                      <img src="https://picsum.photos/400/200?random" alt="Google News" class="img-fluid">
                     </a>
                   </div>
                 </div>
@@ -31,7 +32,7 @@
                   <h6 class="bg-danger text-light p-3"><b>ফেসবুকে আমারা</b></h6>
                   {{-- page links --}}
                   <div class="facebook-preview">
-                    <iframe src="https://www.facebook.com/plugins/page.php?href=YOUR_FACEBOOK_PAGE_LINK&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=YOUR_APP_ID" width="340" height="300" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="encrypted-media"></iframe>
+                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fcollegetouniversity&tabs=timeline&width=340&height=300&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="300" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="encrypted-media"></iframe>
                   </div>
                 </div>
 

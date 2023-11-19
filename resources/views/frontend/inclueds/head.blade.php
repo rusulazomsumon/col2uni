@@ -1,15 +1,20 @@
 <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>myBlog Template</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <title>Collage to University - বাংলা ব্লগিং ওয়েবসাইট | আইটি কোর্স, অনার্স, মাস্টার্স, ইংরেজি, ক্যারিয়ার, তথ্য ও প্রযুক্তি, স্বাস্থ্য ও সুরক্ষা</title>
+  <meta name="description" content="বাংলা ব্লগিং ওয়েবসাইট। আইটি কোর্স, অনার্স, মাস্টার্স, চাকরি, ইংরেজি শিখি, ক্যারিয়ার, তথ্য ও প্রযুক্তি, স্বাস্থ্য ও সুরক্ষা সহ বিভিন্ন বিষয়ের উপর তথ্য ও দিকনির্দেশনা প্রদান করে।">
+  <meta name="keywords" content="বাংলা ব্লগিং, আইটি কোর্স, অনার্স, মাস্টার্স, চাকরি, ইংরেজি, ক্যারিয়ার, তথ্য ও প্রযুক্তি, স্বাস্থ্য ও সুরক্ষা">
+  <meta name="author" content="Rahul">
+  <meta name="copyright" content="collagetouniversity">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="bn">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   {{-- icon cdn backup --}}
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
   <!-- Favicons -->  
-  <link href="{{ asset('frontend/assets/img/favicon.png') }}" rel="icon">
-  <link href="{{ asset('frontend/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+  <link href="{{ asset('image/favicon.png') }}" rel="icon">
+  <link href="{{ asset('image/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">

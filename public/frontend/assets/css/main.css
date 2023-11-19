@@ -457,6 +457,11 @@ section {
   margin-bottom: 30px;
 }
 
+.post-entry-1 h2 a{
+  color: #013e01 !important;
+  font-weight: 600;
+}
+
 .post-entry-1 img {
   margin-bottom: 30px;
 }
@@ -474,7 +479,6 @@ section {
 }
 
 .post-entry-1.lg h2 {
-  font-size: 40px;
   line-height: 1;
 }
 
@@ -487,6 +491,7 @@ section {
   color: rgba(var(--color-black-rgb), 0.4);
   margin-bottom: 10px;
 }
+
 
 @media (max-width: 768px) {
   .custom-border {

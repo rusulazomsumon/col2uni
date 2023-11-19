@@ -5,22 +5,30 @@
   <div class="container">
 
     <div class="row g-5">
+
+      {{-- Sote Info --}}
       <div class="col-lg-4">
-        <h3 class="footer-heading">About ZenBlog</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam ab, perspiciatis beatae autem deleniti voluptate nulla a dolores, exercitationem eveniet libero laudantium recusandae officiis qui aliquid blanditiis omnis quae. Explicabo?</p>
-        <p><a href="about.html" class="footer-link-more">Learn More</a></p>
+        <img src="{{ asset('image/coll2unilogo.png') }}" alt="" height="100" width="300">
+        {{-- <h3 class="footer-heading">About ZenBlog</h3> --}}
+        <p>কলেজ টু ইউনিভার্সিটি একটি শিক্ষামূলক ব্লগ এখানে বিভিন্ন একাডেমিক বিষয়ে আর্টিকেল, চাকরী, চাকরির প্রস্তুতি, ও চাকরির খবর , ক্যারিয়ার ও স্কিল বিষয়ে বিভিন্ন লেখা দেওয়া হয়। 
+        </p>
+        <p><a href="#" class="footer-link-more">বিস্তারিত</a></p>
       </div>
+
+      {{-- Blog Navigation --}}
       <div class="col-6 col-lg-2">
-        <h3 class="footer-heading">Navigation</h3>
+        <h3 class="footer-heading">ন্যাভিগেশন</h3>
         <ul class="footer-links list-unstyled">
-          <li><a href="index.html"><i class="bi bi-chevron-right"></i> Home</a></li>
-          <li><a href="index.html"><i class="bi bi-chevron-right"></i> Blog</a></li>
-          <li><a href="category.html"><i class="bi bi-chevron-right"></i> Categories</a></li>
-          <li><a href="single-post.html"><i class="bi bi-chevron-right"></i> Single Post</a></li>
-          <li><a href="about.html"><i class="bi bi-chevron-right"></i> About us</a></li>
-          <li><a href="contact.html"><i class="bi bi-chevron-right"></i> Contact</a></li>
+          <li><a href="#"><i class="bi bi-chevron-right"></i> About Us</a></li>
+          <li><a href="#"><i class="bi bi-chevron-right"></i> Join With Us </a></li>
+          <li><a href="#"><i class="bi bi-chevron-right"></i> Disclemer</a></li>
+          <li><a href="#"><i class="bi bi-chevron-right"></i>Privecy Pollecy</a></li>
+          <li><a href="#"><i class="bi bi-chevron-right"></i> About us</a></li>
+          <li><a href="#"><i class="bi bi-chevron-right"></i> Contact</a></li>
         </ul>
       </div>
+
+      {{-- Blog Category --}}
       <div class="col-6 col-lg-2">
         <h3 class="footer-heading"> ক্যাটেগরি </h3>
         <ul class="list-unstyled">
@@ -34,60 +42,37 @@
           @endforeach
         </ul>
       </div>
+                
 
       {{-- recent post  --}}
       <div class="col-lg-4">
         <h3 class="footer-heading">সম্প্রতিক</h3>
 
         <ul class="footer-links footer-blog-entry list-unstyled">
+          @foreach($recent_post as $post)
           <li>
-            <a href="single-post.html" class="d-flex align-items-center">
-              <img src="{{ asset('frontend/assets/img/post-sq-1.jpg') }}" alt="" class="img-fluid me-3">
+            <a href="{{ route('front.single', $post->slug) }}" class="d-flex align-items-center">
+              <img src="{{ asset('/post/thumbnail/' . $post->photo) }}" alt="{{ $post->title }}" class="img-fluid me-3">
               <div>
-                <div class="post-meta d-block"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                <span>5 Great Startup Tips for Female Founders</span>
+                <div class="post-meta d-block">
+                  <span class="date">{{ $post->created_at->format('M d, Y') }}</span> 
+                  <span class="mx-1">&bullet;</span> <span>{{ $post->category?->name }}</span>
+                </div>
+                <span>{{ $post->title }}</span>
               </div>
             </a>
           </li>
-
-          <li>
-            <a href="single-post.html" class="d-flex align-items-center">
-              <img src="{{ asset('frontend/assets/img/post-sq-2.jpg') }}" alt="" class="img-fluid me-3">
-              <div>
-                <div class="post-meta d-block"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                <span>What is the son of Football Coach John Gruden, Deuce Gruden doing Now?</span>
-              </div>
-            </a>
-          </li>
-
-          <li>
-            <a href="single-post.html" class="d-flex align-items-center">
-              <img src="{{ asset('frontend/assets/img/post-sq-3.jpg') }}" alt="" class="img-fluid me-3">
-              <div>
-                <div class="post-meta d-block"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                <span>Life Insurance And Pregnancy: A Working Mom’s Guide</span>
-              </div>
-            </a>
-          </li>
-
-          <li>
-            <a href="single-post.html" class="d-flex align-items-center">
-              <img src="{{ asset('frontend/assets/img/post-sq-4.jpg') }}" alt="" class="img-fluid me-3">
-              <div>
-                <div class="post-meta d-block"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                <span>How to Avoid Distraction and Stay Focused During Video Calls?</span>
-              </div>
-            </a>
-          </li>
-
+          @endforeach 
         </ul>
 
       </div>
+      {{--  --}}
 
     </div>
   </div>
 </div>
 
+{{-- %%%%%%%%%%%%%%%%%%%%%Copyright Area%%%%%%%%%%%%%%%%%%% --}}
 <div class="footer-legal">
   <div class="container">
 
@@ -105,8 +90,7 @@
 
       <div class="col-md-6">
         <div class="social-links mb-3 mb-lg-0 text-center text-md-end">
-          <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-          <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+          <a href="https://www.facebook.com/collegetouniversity" class="facebook"><i class="bi bi-facebook"></i></a>
           <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
           <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
           <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
