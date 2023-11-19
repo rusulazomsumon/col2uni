@@ -66,7 +66,7 @@
 
                 <div class="post-entry-1 lg">
                   {{-- image --}}
-                  <a href="{{ route('front.single', $firstPost->slug) }}"><img src="{{asset('/post/original/'.$firstPost->photo)}}" alt="{{ $firstPost->title }}" class="img-fluid"></a>
+                  <a href="{{ route('front.single', ['slug' => $post->slug]) }}"><img src="{{asset('/post/original/'.$firstPost->photo)}}" alt="{{ $firstPost->title }}" class="img-fluid"></a>
                   {{-- post meta --}}
                   <div class="post-meta">
                     <span class="date bg-warning p-1 border">{{ $firstPost->category?->name }}</span> 
@@ -101,9 +101,18 @@
                       @if ($key > 0 && $key < 3)
                       <hr>
                       <div class="post-entry-1"> 
-                        <a href="{{ route('front.single', $post->slug) }}"><img src="{{ asset('/post/thumbnail/' . $post->photo) }}" alt="{{ $post->title }}" class="img-fluid"></a>
-                        <div class="post-meta"><span class="date bg-warning p-1 border"><a href="#">{{ $post->category?->name }}</a></span> <span class="mx-1">&bullet;</span> <span>{{ $post->created_at->format('M d, Y') }}</span></div>
-                          <h2 style="font-size: 16px !important; "><a href="{{ route('front.single', $post->slug) }}">{{ $post->title }}</a></h2>
+                        <a href="{{ route('front.single', $post->slug) }}">
+                          <img src="{{ asset('/post/thumbnail/' . $post->photo) }}" alt="{{ $post->title }}" class="img-fluid">
+                        </a>
+                        <div class="post-meta">
+                          <span class="date bg-warning p-1 border">
+                            <a href="#">{{ $post->category?->name }}</a>
+                          </span> 
+                          <span class="mx-1">&bullet;</span> <span>{{ $post->created_at->format('M d, Y') }}</span>
+                        </div>
+                          <h2 style="font-size: 16px !important; ">
+                            <a href="{{ route('front.single', $post->slug) }}">{{ $post->title }}</a>
+                          </h2>
                       </div>  
                       @endif   
                       @php
@@ -211,6 +220,7 @@
           <div class="col-lg-4">
             @include('frontend.inclueds.sidebar')
           </div>
+          
         </div> 
         <!-- End .row -->
       </div>

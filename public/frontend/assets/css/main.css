@@ -453,6 +453,11 @@ section {
 /*--------------------------------------------------------------
 # Posts
 --------------------------------------------------------------*/
+/* custom code by sumon  */
+.single-post p a{
+  color: #1776d5 !important;
+}
+/* custom code end */
 .post-entry-1 {
   margin-bottom: 30px;
 }

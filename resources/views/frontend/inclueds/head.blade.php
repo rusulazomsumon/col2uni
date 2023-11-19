@@ -1,8 +1,22 @@
 <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Collage to University - বাংলা ব্লগিং ওয়েবসাইট | আইটি কোর্স, অনার্স, মাস্টার্স, ইংরেজি, ক্যারিয়ার, তথ্য ও প্রযুক্তি, স্বাস্থ্য ও সুরক্ষা</title>
+  {{-- dynamic title --}}
+  <title>
+    @if (Route::currentRouteName() === 'front.index')
+        {{ config('app.name') }} | বাংলা ব্লগিং ওয়েবসাইট | আইটি কোর্স, অনার্স, মাস্টার্স, ইংরেজি, ক্যারিয়ার, তথ্য ও প্রযুক্তি, স্বাস্থ্য ও সুরক্ষা
+    @else
+        {{ $post->title }} | {{ config('app.name') }}
+    @endif
+  </title>
+  
   <meta name="description" content="বাংলা ব্লগিং ওয়েবসাইট। আইটি কোর্স, অনার্স, মাস্টার্স, চাকরি, ইংরেজি শিখি, ক্যারিয়ার, তথ্য ও প্রযুক্তি, স্বাস্থ্য ও সুরক্ষা সহ বিভিন্ন বিষয়ের উপর তথ্য ও দিকনির্দেশনা প্রদান করে।">
+  {{-- separate meta description for home and single blog --}}
+  {{-- <meta name="description" content="@if (Route::is('frontend/front.index'))
+                                          {{ htmlspecialchars('বাংলা ব্লগিং ওয়েবসাইট। আইটি কোর্স, অনার্স, মাস্টার্স, চাকরি, ইংরেজি শিখি, ক্যারিয়ার, তথ্য ও প্রযুক্তি, স্বাস্থ্য ও সুরক্ষা সহ বিভিন্ন বিষয়ের উপর লেখা') }}
+                                      @elseif (Route::is('single-post'))
+                                          {{ $post->metaDescription }}
+                                      @endif"> --}}
+
   <meta name="keywords" content="বাংলা ব্লগিং, আইটি কোর্স, অনার্স, মাস্টার্স, চাকরি, ইংরেজি, ক্যারিয়ার, তথ্য ও প্রযুক্তি, স্বাস্থ্য ও সুরক্ষা">
   <meta name="author" content="Rahul">
   <meta name="copyright" content="collagetouniversity">

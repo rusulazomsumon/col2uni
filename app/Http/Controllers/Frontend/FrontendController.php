@@ -23,4 +23,26 @@ class FrontendController extends Controller
   
         return view('frontend.modules.index', compact('posts'));
     }
+
+    // single post
+    public function single($slug){
+
+    $post = Post::where('slug', $slug)->firstOrFail();
+    $relatedPosts = Post::where('category_id', $post->category_id)
+                       ->where('id', '!=', $post->id)
+                       ->take(3)
+                       ->get();
+
+    return view('frontend.modules.single-post', ['post' => $post, 'relatedPosts' => $relatedPosts]);
+}
+
+    // category pag
+    public function category($slug){
+
+        $category = Category::where('slug', $slug)->firstOrFail();
+        $posts = $category->posts()->paginate(10); 
+
+        return view('frontend.modules.all-post', ['category' => $category, 'posts' => $posts]);
+    }
+
 }

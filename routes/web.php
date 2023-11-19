@@ -23,12 +23,15 @@ use Illuminate\Support\Facades\Route;
 // frontend 
 
 Route::get('/', [FrontendController::class, 'index'])->name('front.index');
-// categor slug
-Route::get('/category/{slug}', [FrontendController::class, 'index'])->name('front.category');
+// category slug
+Route::get('/category/{slug}', [FrontendController::class, 'category'])->name('front.category');
 // single post by slug
 Route::get('/single-post/{slug}', [FrontendController::class, 'single'])->name('front.single');
-// single post
-Route::get('/single-post', [FrontendController::class, 'single'])->name('front.single');
+// single post page
+// Route::get('/single-post', [FrontendController::class, 'single'])->name('front.single');
+// all post 
+Route::get('/all-post', [FrontendController::class, 'all_post'])->name('front.all_post');
+
 
 
 
