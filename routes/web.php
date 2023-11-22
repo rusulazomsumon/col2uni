@@ -58,7 +58,7 @@ Route::post('/upload',[FrontendController::class, 'uploadimage'])->name('ckedito
 
 
 // @@@@@@@@@@@@@@@@@@@bakcend@@@@@@@@@@@@@@@@@
-Route::group(['prefix'=>'dashboard'],function(){
+Route::group(['prefix' => 'dashboard', 'middleware' => ['auth.dashboard']], function(){
     Route::get('/', [BackendController::class,'index'])->name('back.index');
     // category 
     Route::resource('category', CategoryController::class);
