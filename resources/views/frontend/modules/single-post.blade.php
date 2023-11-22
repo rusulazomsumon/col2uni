@@ -53,16 +53,19 @@
               <div class="related-posts">
                 <h4 class="p-5 text-danger">{{ $post->category?->name }} , সম্বন্ধীয় আরও পড়ুন... </h4>
                 <div class="row">
-                    @foreach ($relatedPosts as $relatedPost)
-                        <div class="col-md-4">
-                            <div class="card p-1">
-                                <img src="{{ asset('/post/thumbnail/'. $relatedPost->photo) }}" class="card-img-top" alt="{{ $relatedPost->title }}">
-                                <div class="card-body">
-                                    <h5 class="card-title text-success">{{ $relatedPost->title }}</h5>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
+                  @foreach ($relatedPosts as $relatedPost)
+                  <div class="col-md-4">
+                      <a href="{{ route('front.single', $relatedPost->slug) }}" class="card-link">
+                          <div class="card p-1">
+                              <img src="{{ asset('/post/thumbnail/'. $relatedPost->photo) }}" class="card-img-top" alt="{{ $relatedPost->title }}">
+                              <div class="card-body">
+                                  <h5 class="card-title text-success">{{ $relatedPost->title }}</h5>
+                              </div>
+                          </div>
+                      </a>
+                  </div>
+                  @endforeach
+              
                 </div>
               </div>
               

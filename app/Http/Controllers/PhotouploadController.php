@@ -14,6 +14,14 @@ class PhotouploadController extends Controller
             ->fit($width, $height)
             ->save(public_path($path).$image_name, quality:50, format:'webp');
         return $image_name;
+// for server
+// $image_name = $name . '.web';
+
+// Image::make($file)
+//     ->fit($width, $height)
+//     ->save(base_path('public/' . $path) . $image_name, 50, 'webp');
+
+// return $image_name;
     }
     // image unlink during update post 
     public static function imageUnlink($path, $name):void{
