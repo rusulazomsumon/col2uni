@@ -781,7 +781,13 @@ section {
   padding-left: 3px;
 }
 
-.post-content figure {
+/* custome code sumon  */
+.post-content figure img, svg {
+  vertical-align: middle;
+  width: 100% !important;
+  height: auto;
+}
+/* .post-content figure {
   position: relative;
   left: 52%;
   min-width: 990px;
@@ -794,7 +800,7 @@ section {
     left: auto !important;
     transform: none;
   }
-}
+} */
 
 .post-content figure figcaption {
   font-family: var(--font-secondary);

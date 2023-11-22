@@ -36,13 +36,30 @@ class FrontendController extends Controller
     return view('frontend.modules.single-post', ['post' => $post, 'relatedPosts' => $relatedPosts]);
 }
 
-    // category pag
+    // category page
     public function category($slug){
 
         $category = Category::where('slug', $slug)->firstOrFail();
         $posts = $category->posts()->paginate(10); 
 
         return view('frontend.modules.all-post', ['category' => $category, 'posts' => $posts]);
+    }
+
+    // ek editor image uploader 
+    public function uploadimage(Request $request){
+        if($request->hasFile('upload')) {
+            $originalName = $request->file('upload')->getClientOriginalName();
+            $fileName = pathinfo($originalName, PATHINFO_FILENAME);
+            $extension = $request->file('upload')->getClientOriginalExtension();
+            $fileName = $fileName. '_' . time() . '.' . $extension;
+
+            // saving to public/image folder
+            $request->file('upload')->move(public_path('image'), $fileName);
+
+            $url = asset('image/' . $fileName);
+
+            return response()->json(['fileName' => $fileName, 'uploaded'=>1, 'url' => $url]);
+        }
     }
 
 }

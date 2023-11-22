@@ -32,9 +32,12 @@ Route::get('/single-post/{slug}', [FrontendController::class, 'single'])->name('
 // all post 
 Route::get('/all-post', [FrontendController::class, 'all_post'])->name('front.all_post');
 
+// ck editor image uploader 
+Route::post('/upload',[FrontendController::class, 'uploadimage'])->name('ckeditor.upload');
 
 
 
+// ###########bakcend################
 Route::group(['prefix'=>'dashboard'],function(){
     Route::get('/', [BackendController::class,'index'])->name('back.index');
     // category 

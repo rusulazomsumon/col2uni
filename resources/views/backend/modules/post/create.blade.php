@@ -49,7 +49,11 @@
 
     <script>
         // ck editor code 
-            ClassicEditor.create( document.querySelector( '#description' ) )
+            ClassicEditor.create( document.querySelector( '#description' ),{
+                ckfinder:{
+                    uploadUrl: '{{ route('ckeditor.upload').'?_token='.csrf_token() }}'
+                }
+            } )
         .catch( error => {
             console.error( error );
         } );
