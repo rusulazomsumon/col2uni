@@ -4,6 +4,8 @@ use App\Http\Controllers\Backend\BackendController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +22,25 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-// frontend 
+//@@@@@@@@@@@@@@@@ cache, route, view clear route @@@@@@@@@@@@@@@@
+
+Route::get('/clear-all', function () {
+    // Clear the application cache
+    Artisan::call('cache:clear');
+
+    // Clear the compiled views
+    Artisan::call('view:clear');
+
+    // Clear the route cache
+    Artisan::call('route:clear');
+
+    // Additional commands for clearing other caches can be added here
+
+    return 'Caches, view, and route cleared successfully.';
+});
+
+
+//@@@@@@@@@@@@@@@@@@@@ frontend @@@@@@@@@@@@@@@@@@
 
 Route::get('/', [FrontendController::class, 'index'])->name('front.index');
 // category slug
@@ -37,11 +57,12 @@ Route::post('/upload',[FrontendController::class, 'uploadimage'])->name('ckedito
 
 
 
-// ###########bakcend################
+// @@@@@@@@@@@@@@@@@@@bakcend@@@@@@@@@@@@@@@@@
 Route::group(['prefix'=>'dashboard'],function(){
     Route::get('/', [BackendController::class,'index'])->name('back.index');
     // category 
     Route::resource('category', CategoryController::class);
+    // post 
     Route::resource('post', PostController::class);
 });
 

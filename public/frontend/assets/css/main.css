@@ -12,10 +12,14 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+@import url('https://fonts.maateen.me/solaiman-lipi/font.css');
 :root {
   scroll-behavior: smooth;
 }
-
+/* font to all elements */
+* {
+  font-family: 'SolaimanLipi', Arial, sans-serif !important;
+}
 body {
   color: rgba(var(--color-primary-rgb), 1);
 }
@@ -245,19 +249,37 @@ section {
     transition: 0.3s;
   }
 
-  .navbar a i,
+  /* .navbar a i,
   .navbar a:focus i {
     font-size: 12px;
     line-height: 0;
     margin-left: 5px;
   }
 
-  .navbar a:hover,
-  .navbar .active,
-  .navbar .active:focus,
-  .navbar li:hover>a {
-    color: var(--color-default);
-  }
+.navbar a:hover,
+.navbar .active,
+.navbar .active:focus,
+.navbar li:hover > a {
+  color: #025f02;
+  font-size: 1.5em;
+  font-weight: 600;
+} */
+.navbar a,
+.navbar a:visited {
+  color: #333; /* Set your default text color */
+  font-size: 1em;
+  font-weight: 400;
+  transition: color 0.5s ease, font-size 0.9s ease; /* Apply transitions to both color and font-size */
+}
+
+.navbar a:hover,
+.navbar .active,
+.navbar .active:focus,
+.navbar li:hover > a {
+  color: #025f02;
+  font-size: 1.3em;
+  font-weight: 600;
+}
 
   .navbar .getstarted,
   .navbar .getstarted:focus {
@@ -1217,7 +1239,8 @@ section {
 --------------------------------------------------------------*/
 .footer {
   overflow: hidden;
-  background: rgba(var(--color-black-rgb), 0.9);
+  /* background: rgba(var(--color-black-rgb), 0.9); */
+  background: rgb(1, 51, 51);
   font-size: 16px;
   color: rgba(var(--color-white-rgb), 0.7);
 }
@@ -1287,8 +1310,9 @@ section {
 }
 
 .footer .footer-legal {
-  background: var(--color-black);
-  padding: 40px 0;
+  /* background: var(--color-black); */
+  background: #564a4a57;
+  padding: 10px 0;
 }
 
 .footer .footer-legal .social-links a {
