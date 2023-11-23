@@ -149,7 +149,9 @@
                           @if ($counter < 5) 
                             <div class="col-md-4 mb-4">
                                 <div class="card">
+                                  <a href="{{ route('front.single', $post->slug) }}">
                                     <img src="{{ asset('/post/thumbnail/' . $post->photo) }}" alt="{{ $post->title }}" class="card-img-top img-fluid">
+                                  </a>
                                     <div class="card-body">
                                         <h5 class="card-title"><a href="{{ route('front.single', $post->slug) }}">{{ $post->title }}</a></h5>
                                         <p class="card-text">{{ $post->created_at->format('M d, Y') }}</p>
@@ -192,8 +194,10 @@
                             <div class="card">
                                 <div class="row g-0">
                                     <div class="col-md-4">
+                                      <a href="{{ route('front.single', $post->slug) }}">
                                         <img src="{{ asset('/post/thumbnail/' . $post->photo) }}" alt="{{ $post->title }}" class="img-fluid">
-                                    </div>
+                                      </a>
+                                      </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
                                             <h5 class="card-title"><a href="{{ route('front.single', $post->slug) }}">{{ $post->title }}</a></h5>

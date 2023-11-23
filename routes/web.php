@@ -55,6 +55,9 @@ Route::get('/all-post', [FrontendController::class, 'all_post'])->name('front.al
 // ck editor image uploader 
 Route::post('/upload',[FrontendController::class, 'uploadimage'])->name('ckeditor.upload');
 
+// ############Suport Page##############
+Route::get('/contact', [FrontendController::class, 'contact'])->name('front.contact');
+Route::get('/privacy-policy', [FrontendController::class, 'privacy_policy'])->name('front.privacy_policy');
 
 
 // @@@@@@@@@@@@@@@@@@@bakcend@@@@@@@@@@@@@@@@@

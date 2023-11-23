@@ -17,7 +17,6 @@
                     @foreach($recent_post as $post)
                     <li>
                       <a href="{{ route('front.single', $post->slug) }}">
-                        <span class="number">1</span>
                         <h6>{{ $post->title }}</h6>
                         <span class="author">{{ $post->created_at->format('M d, Y') }}</span>
                       </a>
@@ -40,13 +39,22 @@
                 <div class="trending mt-3">
                   <h6 class="bg-dark text-light p-3"><b>বিভাগ গুলি</b></h6>
                   <ul class="list-unstyled">
+                    @php
+                      $i=0;
+                    @endphp
                     @foreach ($categories as $category)
+                    {{-- প্রথম ১৫ টা ক্যাটেগরি দেখাতে --}}
+                      @if($i<13)
                     <li>
                       <a href="{{ route('front.category', $category->slug) }}">
                         <i class="bi bi-folder" style="color: #998305"></i>
                           {{ $category->name }} 
                       </a>
                     </li> 
+                      @endif
+                      @php
+                        $i++;
+                      @endphp
                     @endforeach
                   </ul>
                 </div>
@@ -87,7 +95,7 @@
                 </div>
 
                 <!-- ######LoginForm####### -->
-                <div class="login pt-5">
+                {{-- <div class="login pt-5">
                   <form>
                       <div class="form-group">
                           <label for="username">Username</label>
@@ -99,6 +107,33 @@
                       </div>
                       <button type="submit" class="btn btn-primary">Login</button>
                   </form>
-                </div>
+                </div> --}}
                 {{--  --}}
+
+                {{-- Educational Category --}}
+                <div class="trending mt-3">
+                  <h6 class="bg-danger text-light p-3"><b>আমাদের শিক্ষাঙ্গন</b></h6>
+                  <div class="row">
+                      @php
+                          $i = 0;
+                      @endphp
+                      @foreach ($categories as $category)
+                          {{-- i এর মান ১৯ সেট করার কারনে, প্রথম ১৯ টা ক্যাটেগরি স্কিপ করবে --}}
+                          @if ($i > 12)
+                              <div class="col-md-6">
+                                  <li class="border p-1 m-1" style="list-style: none;">
+                                      <a class="text-danger " href="{{ route('front.category', $category->slug) }}">
+                                          {{ $category->name }}
+                                      </a>
+                                  </li>
+                              </div>
+                          @endif
+                          @php
+                              $i++;
+                          @endphp
+                      @endforeach
+                  </div>
+                </div>
+              
+
               </div>

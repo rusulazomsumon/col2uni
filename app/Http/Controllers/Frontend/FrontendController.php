@@ -45,6 +45,27 @@ class FrontendController extends Controller
         return view('frontend.modules.all-post', ['category' => $category, 'posts' => $posts]);
     }
 
+
+    //Suport Page: contact  
+    public function contact(){
+        $post = (object)[
+            'title' => 'Contact Us',
+        ]; 
+       
+
+        return view('frontend.pages.contact', compact('post'));
+    }
+
+    //Suport Page: Privacy Policy  
+    public function privacy_policy(){
+        $post = (object)[
+            'title' => 'Privacy Policy',
+        ]; 
+    
+
+        return view('frontend.pages.privacy_policy', compact('post'));
+    }
+
     // ek editor image uploader 
     public function uploadimage(Request $request){
         if($request->hasFile('upload')) {

@@ -24,8 +24,17 @@
                        অন্যান্য
                     </a>
                     <div class="dropdown-menu" aria-labelledby="moreDropdown">
+                      {{-- do not print after 19 category --}}
+                        @php
+                          $i=7;
+                        @endphp
                         @foreach ($categories->slice(7) as $category)
+                          @if($i<13)
                             <a class="dropdown-item" href="{{ route('front.category', $category->slug) }}">{{ $category->name }}</a>
+                            @endif
+                            @php
+                              $i++;
+                            @endphp
                         @endforeach
                     </div>
                 </li>
