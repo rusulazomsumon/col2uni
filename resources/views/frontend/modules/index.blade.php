@@ -189,7 +189,7 @@
                 @foreach ($posts as $post)
                     @if (in_array($post->category->order_by, [4, 5, 6]))
                       {{-- only 5 post show --}}
-                      @if ($counter < 5) 
+                      @if ($counter < 6) 
                         <div class="col-md-12 mb-4 p-1">
                             <div class="card">
                                 <div class="row g-0">

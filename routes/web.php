@@ -5,6 +5,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\SitemapXmlController;
+
 
 
 /*
@@ -38,6 +40,9 @@ Route::get('/clear-all', function () {
 
     return 'Caches, view, and route cleared successfully.';
 });
+
+// @@@@@@@@@@@@@@@@sitemap@@@@@@@@@@@@@@@@  
+Route::get('/sitemap.xml', [SitemapXmlController::class, 'index']);
 
 
 //@@@@@@@@@@@@@@@@@@@@ frontend @@@@@@@@@@@@@@@@@@

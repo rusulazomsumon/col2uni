@@ -86,13 +86,13 @@
                 </div>
 
                  {{-- AD2  --}}
-                 <div class="trending">
+                 {{-- <div class="trending">
                   <div class="google-news-banner">
                     <a href="#">
                       <img src="https://media.licdn.com/dms/image/C5612AQEoBVnpxa879w/article-cover_image-shrink_600_2000/0/1520103821627?e=2147483647&v=beta&t=6O68ORV9LCg5J4xkA7tPZV2nIdxdj-x7RbKwXBnKVY4" alt="Google News" class="img-fluid">
                     </a>
                   </div>
-                </div>
+                </div> --}}
 
                 <!-- ######LoginForm####### -->
                 {{-- <div class="login pt-5">

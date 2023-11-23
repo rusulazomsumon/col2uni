@@ -37,7 +37,7 @@
             $i=0;
           @endphp
           @foreach ($categories as $category)
-            @if($i<15)
+            @if($i<12)
           <li>
             <a class="text-light" href="{{ route('front.category', $category->slug) }}">
               <i class="bi bi-folder" style="color: #998305"></i>

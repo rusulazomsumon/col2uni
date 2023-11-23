@@ -135,7 +135,7 @@ section {
   height: 90px;
   transition: all 0.5s;
   z-index: 997;
-  background: #f2f2f2;
+  background: #013333;
 }
 
 .header.sticked {
@@ -235,6 +235,10 @@ section {
     position: relative;
   }
 
+  .navbar li a{
+    color: #ffa905;
+  }
+
   .navbar a,
   .navbar a:focus {
     display: flex;
@@ -266,9 +270,9 @@ section {
 } */
 .navbar a,
 .navbar a:visited {
-  color: #333; /* Set your default text color */
+  color: #ffffff; /* Set your default text color */
   font-size: 1em;
-  font-weight: 400;
+  font-weight: 500;
   transition: color 0.5s ease, font-size 0.9s ease; /* Apply transitions to both color and font-size */
 }
 
@@ -276,7 +280,7 @@ section {
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover > a {
-  color: #025f02;
+  color: #4e51ec;
   font-size: 1.3em;
   font-weight: 600;
 }
@@ -312,6 +316,7 @@ section {
     border-radius: 4px;
   }
 
+  
   .navbar .dropdown ul li {
     min-width: 200px;
   }
