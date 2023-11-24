@@ -66,7 +66,17 @@ class FrontendController extends Controller
         return view('frontend.pages.privacy_policy', compact('post'));
     }
 
-    // ek editor image uploader 
+    //Suport Page: Privacy Policy  
+    public function about(){
+        $post = (object)[
+            'title' => 'About Us',
+        ]; 
+    
+
+        return view('frontend.pages.about', compact('post'));
+    }
+
+    // ck editor image uploader 
     public function uploadimage(Request $request){
         if($request->hasFile('upload')) {
             $originalName = $request->file('upload')->getClientOriginalName();

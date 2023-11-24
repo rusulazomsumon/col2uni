@@ -61,6 +61,7 @@ Route::get('/all-post', [FrontendController::class, 'all_post'])->name('front.al
 Route::post('/upload',[FrontendController::class, 'uploadimage'])->name('ckeditor.upload');
 
 // ############Suport Page##############
+Route::get('/about-us', [FrontendController::class, 'about'])->name('front.about');
 Route::get('/contact', [FrontendController::class, 'contact'])->name('front.contact');
 Route::get('/privacy-policy', [FrontendController::class, 'privacy_policy'])->name('front.privacy_policy');
 

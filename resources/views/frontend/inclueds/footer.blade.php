@@ -21,7 +21,7 @@
       <div class="col-6 col-lg-2">
         <h3 class="footer-heading">ন্যাভিগেশন</h3>
         <ul class="footer-links list-unstyled">
-          <li><a href="#"><i class="bi bi-chevron-right"></i> About Us</a></li>
+          <li><a href="{{ route('front.about') }}"><i class="bi bi-chevron-right"></i> About Us</a></li>
           <li><a href="#"><i class="bi bi-chevron-right"></i> Join With Us </a></li>
           <li><a href="#"><i class="bi bi-chevron-right"></i> Disclemer</a></li>
           <li><a href="{{ route('front.privacy_policy') }}"><i class="bi bi-chevron-right"></i>Privecy Pollecy</a></li>

@@ -72,27 +72,31 @@
               <!-- End Single Post Content -->
 
               <!-- ======= Author Info ======= -->
-                {{-- <div class="container mt-5 border">
+                <div class="container mt-5 border">
                     <div class="row p-3">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <!-- Author Picture (Square, 50%) -->
-                            <img src="https://placekitten.com/200/200" alt="Author Picture" class="img-fluid rounded-square">
-                        </div>
-                        <div class="col-md-6">
-                            <!-- Author Name -->
-                            <h3>Author Name</h3>
-                            <!-- Author Info -->
-                            <p>User Info: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <img src="{{ asset('image/rahulpic.png') }}" alt="Rahul Choudhury" class="rounded-circle" style="width: 150px; height: 150px;">
+                          
                             <!-- Social Media Links -->
-                            <div class="social-links">
-                                <a href="#" target="_blank"><i class="bi bi-facebook"></i></a>
-                                <a href="#" target="_blank"><i class="bi bi-twitter"></i></a>
-                                <a href="#" target="_blank"><i class="bi bi-linkedin"></i></a>
-                                <!-- Add more social media links as needed -->
+                            <div class="social-links text-center mt-3">
+                              <a href="https://www.facebook.com/rahulchyinfo" target="_blank"><i class="bi bi-facebook"></i></a>
+                              <a href="#" target="_blank"><i class="bi bi-twitter"></i></a>
+                              <a href="https://www.linkedin.com/in/rahul-loventus-local-seo" target="_blank"><i class="bi bi-linkedin"></i></a>
+                              <!-- Add more social media links as needed -->
                             </div>
+
+                          </div>
+                        <div class="col-md-8">
+                            <!-- Author Name -->
+                            <h3> রাহুল চৌধুরী</h3>
+                            <!-- Author Info -->
+                            <p>
+                              কলেজ টু ইউনিভার্সিটি এর প্রতিষ্ঠাতা রাহুল চৌধুরীর উদ্দ্যেশ্য হলো,বাংলাদেশের সকল শিক্ষার্থীদের প্রয়োজনীয় শিক্ষা এবং ক্যারিয়ার মূলক তথ্য ও অনুপ্রেরণা দিয়ে সহায়তা করা।যার মাধ্যমে দেশের প্রতিটি শিক্ষার্থী সমৃদ্ধ হতে পারে এবং স্কিল ডেভেলপ করতে পারে।
+                            </p>
                         </div>
                     </div>
-                </div> --}}
+                </div>
   
               <!-- ======= Comments ======= -->
               {{-- <div class="comments">
