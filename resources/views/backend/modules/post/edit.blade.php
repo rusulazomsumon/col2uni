@@ -71,7 +71,13 @@
 
     <script>
         // ck editor code 
-            ClassicEditor.create( document.querySelector( '#description' ) )
+        ClassicEditor.create( document.querySelector( '#description' ),{
+            ckfinder:{
+                    // uploadUrl: '{{ route('ckeditor.upload').'?_token='.csrf_token() }}'
+                    uploadUrl: '{{ route('ckeditor.upload') }}?_token={{ csrf_token() }}'
+                }
+            })
+            
         .catch( error => {
             console.error( error );
         } );
@@ -80,7 +86,7 @@
             let name = $(this).val()
             let slug = name.replaceAll(' ','-')
             $('#slug').val(slug.toLowerCase());
-        })
+        });
     </script>
 @endpush   
 @endsection

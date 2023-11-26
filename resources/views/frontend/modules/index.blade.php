@@ -18,7 +18,7 @@
                 @foreach ($posts as $post)
                     @if ($counter < 5)
                         <div class="swiper-slide">
-                            <a href="{{ route('front.single', $post->slug) }}" class="img-bg d-flex align-items-end" style="background-image: url('{{ asset('/post/thumbnail/'.$post->photo) }}'); height: 200px; background-size: cover;">
+                            <a href="{{ route('front.single', $post->slug) }}" class="img-bg title-link d-flex align-items-end" style="background-image: url('{{ asset('/post/thumbnail/'.$post->photo) }}'); height: 200px; background-size: cover;">
                                 <div class="img-bg-inner">
                                   <h6 class="text-light" style="margin-bottom: 0; padding: 5px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); background-color: rgba(0, 128, 0, 0.5); border-radius: 5px;"><b>{{ $post->title }}</b></h6>
                                 </div>
@@ -74,7 +74,7 @@
                     <span>{{ $firstPost->created_at->format('M d, Y') }}</span>
                   </div>
                   {{-- title --}}
-                  <h2><a href="{{ route('front.single', $firstPost->slug) }}">{{ $firstPost->title }}</a></h2>
+                  <h2><a class="title-link" href="{{ route('front.single', $firstPost->slug) }}">{{ $firstPost->title }}</a></h2>
                   {{-- description --}}
                   <p class="mb-4 d-block">{{ html_entity_decode(strip_tags(Str::limit($firstPost->description, 300))) }} <a href="{{ route('front.single', $firstPost->slug) }}">বিস্তারিত...</a></p>
 
@@ -111,7 +111,7 @@
                           <span class="mx-1">&bullet;</span> <span>{{ $post->created_at->format('M d, Y') }}</span>
                         </div>
                           <h2 style="font-size: 16px !important; ">
-                            <a href="{{ route('front.single', $post->slug) }}">{{ $post->title }}</a>
+                            <a class="title-link" href="{{ route('front.single', $post->slug) }}">{{ $post->title }}</a>
                           </h2>
                       </div>  
                       @endif   
@@ -153,7 +153,7 @@
                                     <img src="{{ asset('/post/thumbnail/' . $post->photo) }}" alt="{{ $post->title }}" class="card-img-top img-fluid">
                                   </a>
                                     <div class="card-body">
-                                        <h5 class="card-title"><a href="{{ route('front.single', $post->slug) }}">{{ $post->title }}</a></h5>
+                                        <h5 class="card-title"><a class="title-link" href="{{ route('front.single', $post->slug) }}">{{ $post->title }}</a></h5>
                                         <p class="card-text">{{ $post->created_at->format('M d, Y') }}</p>
                                     </div>
                                 </div>
@@ -200,7 +200,7 @@
                                       </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
-                                            <h5 class="card-title"><a href="{{ route('front.single', $post->slug) }}">{{ $post->title }}</a></h5>
+                                            <h5 class="card-title"><a class="title-link" href="{{ route('front.single', $post->slug) }}">{{ $post->title }}</a></h5>
                                             <p class="card-text">{{ $post->created_at->format('M d, Y') }}</p>
                                         </div>
                                     </div>
