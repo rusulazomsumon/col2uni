@@ -25,9 +25,34 @@
                   </ul>
                 </div>
 
+                {{-- Educational Category --}}
+                <div class="trending mt-3">
+                  <h6 class="bg-warning text-center text-danger p-3"><b>আমাদের শিক্ষাঙ্গন</b></h6>
+                  <div class="row">
+                      @php
+                          $i = 0;
+                      @endphp
+                      @foreach ($categories as $category)
+                          {{-- i এর মান ১৯ সেট করার কারনে, প্রথম ১৯ টা ক্যাটেগরি স্কিপ করবে --}}
+                          @if ($i > 12)
+                              <div class="col-md-6 bg-success ">
+                                  <li class="border p-1 m-1" style="list-style: none;">
+                                      <a class="text-light " href="{{ route('front.category', $category->slug) }}">
+                                          {{ $category->name }}
+                                      </a>
+                                  </li>
+                              </div>
+                          @endif
+                          @php
+                              $i++;
+                          @endphp
+                      @endforeach
+                  </div>
+                </div>
+              
                  
                 {{-- |Facebook Page --}}
-                <div class="trending mt-3">
+                <div class="trending mt-3"> 
                   <h6 class="bg-danger text-light p-3"><b>ফেসবুকে আমরা</b></h6>
                   {{-- page links --}}
                   <div class="facebook-preview">
@@ -110,30 +135,6 @@
                 </div> --}}
                 {{--  --}}
 
-                {{-- Educational Category --}}
-                <div class="trending mt-3">
-                  <h6 class="bg-danger text-light p-3"><b>আমাদের শিক্ষাঙ্গন</b></h6>
-                  <div class="row">
-                      @php
-                          $i = 0;
-                      @endphp
-                      @foreach ($categories as $category)
-                          {{-- i এর মান ১৯ সেট করার কারনে, প্রথম ১৯ টা ক্যাটেগরি স্কিপ করবে --}}
-                          @if ($i > 12)
-                              <div class="col-md-6">
-                                  <li class="border p-1 m-1" style="list-style: none;">
-                                      <a class="text-danger " href="{{ route('front.category', $category->slug) }}">
-                                          {{ $category->name }}
-                                      </a>
-                                  </li>
-                              </div>
-                          @endif
-                          @php
-                              $i++;
-                          @endphp
-                      @endforeach
-                  </div>
-                </div>
-              
+                
 
               </div>

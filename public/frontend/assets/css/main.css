@@ -270,7 +270,7 @@ section {
 } */
 .navbar a,
 .navbar a:visited {
-  color: #ffffff; /* Set your default text color */
+  color: #ffa805de; /* Set your default text color */
   font-size: 1em;
   font-weight: 500;
   transition: color 0.5s ease, font-size 0.9s ease; /* Apply transitions to both color and font-size */
@@ -280,7 +280,7 @@ section {
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover > a {
-  color: #4e51ec;
+  color: rgb(223, 146, 4)c2;
   font-size: 1.3em;
   font-weight: 600;
 }

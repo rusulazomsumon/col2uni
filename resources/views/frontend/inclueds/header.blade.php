@@ -5,7 +5,7 @@
       {{-- |||||||||||||||Logo Area||||||||||||||| --}}
       <a href="{{ route('front.index') }}" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="{{ asset('image/coll2unilogo.png') }}" alt="">
+        <img src="{{ asset('image/coll2unilogo.png') }}" width="120px" height="150px" alt="Collage to University Logo">
         {{-- <h1>myBlog</h1> --}}
       </a>
 

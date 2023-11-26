@@ -9,12 +9,13 @@
       {{-- Sote Info --}}
       <div class="col-lg-4">
         <a href="{{ route('front.index') }}">
-          <img src="{{ asset('image/coll2unilogo.png') }}" alt="" width="300" height="100" >
+          <img src="{{ asset('image/coll2unilogo.png') }}" alt="Collage to University Logo" width="300" height="200" >
         </a>
         {{-- <h3 class="footer-heading">About ZenBlog</h3> --}}
         <p>কলেজ টু ইউনিভার্সিটি একটি শিক্ষামূলক ব্লগ এখানে বিভিন্ন একাডেমিক বিষয়ে আর্টিকেল, চাকরী, চাকরির প্রস্তুতি, ও চাকরির খবর , ক্যারিয়ার ও স্কিল বিষয়ে বিভিন্ন লেখা দেওয়া হয়। 
         </p>
-        <p><a href="#" class="footer-link-more">বিস্তারিত</a></p>
+        <p><a href="{{ route('front.about') }}" class="footer-link-more">বিস্তারিত</a></p>
+
       </div>
 
       {{-- Blog Navigation --}}
@@ -24,7 +25,7 @@
           <li><a href="{{ route('front.about') }}"><i class="bi bi-chevron-right"></i> About Us</a></li>
           <li><a href="#"><i class="bi bi-chevron-right"></i> Join With Us </a></li>
           <li><a href="#"><i class="bi bi-chevron-right"></i> Disclemer</a></li>
-          <li><a href="{{ route('front.privacy_policy') }}"><i class="bi bi-chevron-right"></i>Privecy Pollecy</a></li>
+          <li><a href="{{ route('front.privacy_policy') }}"><i class="bi bi-chevron-right"></i>Privacy Policy</a></li>
           <li><a href="{{ route('front.contact') }}"><i class="bi bi-chevron-right"></i> Contact</a></li>
         </ul>
       </div>

@@ -72,29 +72,44 @@
               <!-- End Single Post Content -->
 
               <!-- ======= Author Info ======= -->
-                <div class="container mt-5 border">
+                <div class="container mt-5">
                     <div class="row p-3">
-                        <div class="col-md-4">
-                            <!-- Author Picture (Square, 50%) -->
-                            <img src="{{ asset('image/rahulpic.png') }}" alt="Rahul Choudhury" class="rounded-circle" style="width: 150px; height: 150px;">
+                      <div class="col-md-2">
                           
+                      </div>
+
+                      <div class="com-md-8">
+
+                        <div class="row p-3">
+                          <div class="col-md-4 ">
+                            <!-- Author Picture (Square, 50%) -->
+                            <img src="{{ asset('image/pujadatta.png') }}" alt="Puja Datta" class="rounded-circle" style="width: 100px; height: 100px;">
+                            <p class="mt-3"><b>পূজা দত্ত </b></p>
+                            <p><i>কলেজ টু ইউনিভার্সিটি, সহ প্রতিষ্ঠাতা</i></p>
                             <!-- Social Media Links -->
                             <div class="social-links text-center mt-3">
-                              <a href="https://www.facebook.com/rahulchyinfo" target="_blank"><i class="bi bi-facebook"></i></a>
+                              <a href="https://www.facebook.com/profile.php?id=100068856773973" target="_blank"><i class="bi bi-facebook"></i></a>
                               <a href="#" target="_blank"><i class="bi bi-twitter"></i></a>
-                              <a href="https://www.linkedin.com/in/rahul-loventus-local-seo" target="_blank"><i class="bi bi-linkedin"></i></a>
+                              <a href="#" target="_blank"><i class="bi bi-linkedin"></i></a>
                               <!-- Add more social media links as needed -->
                             </div>
-
+  
                           </div>
-                        <div class="col-md-8">
-                            <!-- Author Name -->
-                            <h3> রাহুল চৌধুরী</h3>
-                            <!-- Author Info -->
-                            <p>
-                              কলেজ টু ইউনিভার্সিটি এর প্রতিষ্ঠাতা রাহুল চৌধুরীর উদ্দ্যেশ্য হলো,বাংলাদেশের সকল শিক্ষার্থীদের প্রয়োজনীয় শিক্ষা এবং ক্যারিয়ার মূলক তথ্য ও অনুপ্রেরণা দিয়ে সহায়তা করা।যার মাধ্যমে দেশের প্রতিটি শিক্ষার্থী সমৃদ্ধ হতে পারে এবং স্কিল ডেভেলপ করতে পারে।
-                            </p>
+                          <div class="col-md-6 border pt-3">
+                              
+                              <!-- Author Info -->
+                              <p>
+                                কলেজ থেকে উনিভার্সিটি জীবনের গুরুপপূর্ণ একটা সময়, এইসময় লেখাপড়ার পাশাপাশি শিক্ষার্থীদের ক্যারিয়ার নিয়ে চিন্তা করতে হয়।  এমন ক্যারিয়ার সচেতন শিক্ষার্থীদের সাহায্য করতেই আমাদের এই ব্লগটি।  এখানে, শিক্ষর্থীরা কলেজ ও উনিভার্সিটির বিভিন্ন এডাডেমিক বিষয়ের পাশাপাশি ক্যারিয়ার ও চাকরির প্রস্তুতির সহযোগি আর্টিকেল পড়তে পারবেন।
+                              </p>
+                  
+                          </div>
                         </div>
+
+                      </div>
+                        
+                      <div class="col-md-2">
+
+                      </div>
                     </div>
                 </div>
   
