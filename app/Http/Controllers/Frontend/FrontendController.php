@@ -25,16 +25,29 @@ class FrontendController extends Controller
     }
 
     // single post
-    public function single($slug){
+    // public function single($slug){
 
-    $post = Post::where('slug', $slug)->firstOrFail();
-    $relatedPosts = Post::where('category_id', $post->category_id)
-                       ->where('id', '!=', $post->id)
-                       ->take(3)
-                       ->get();
+    // $post = Post::where('slug', $slug)->firstOrFail();
+    // $relatedPosts = Post::where('category_id', $post->category_id)
+    //                    ->where('id', '!=', $post->id)
+    //                    ->take(3)
+    //                    ->get();
 
-    return view('frontend.modules.single-post', ['post' => $post, 'relatedPosts' => $relatedPosts]);
-}
+    // return view('frontend.modules.single-post', ['post' => $post, 'relatedPosts' => $relatedPosts]);
+    // }
+    public function single($slug) {
+        $post = Post::where('slug', $slug)->firstOrFail();
+    
+        // Increment views directly in the database
+        $post->increment('views');
+    
+        $relatedPosts = Post::where('category_id', $post->category_id)
+                           ->where('id', '!=', $post->id)
+                           ->take(3)
+                           ->get();
+    
+        return view('frontend.modules.single-post', ['post' => $post, 'relatedPosts' => $relatedPosts]);
+    }
 
     // category page
     public function category($slug){

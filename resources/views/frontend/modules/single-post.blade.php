@@ -25,7 +25,10 @@
                   <span class="date bg-warning p-1 border">{{ $post->category?->name }}</span> 
                   <span class="mx-1">&bullet;</span> 
                   <span>{{ $post->created_at->format('M d, Y') }}</span>
+                  <span class="mx-1">&bullet;</span> 
+                  <span class=" p-1"><i class="bi bi-eye"></i>{{ $post->views }}</span>
                   <hr>
+
                 </div>
 
                 {{--$$$$$$$$$$ post description $$$$$$$$$$--}}
